@@ -1,8 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+ 
+<nav>
+  <div id="nav" class="col-md-12">
+    <div class="col-md-10"></div>
+    <div class="col-md-1"><%= link_to("Lenguage", "/lenguage") %></div>
+    <div class="col-md-1"><%= link_to("Contact", "/contact") %></div>
+  </div>
+</nav>
 
 <div id="content">
-  <h1>< building /></h1>
-  <p>Working day and night!</p>
+  <%=image_tag("brickapp_logo.png", id: "logo")%>
+  <h1>Easy managing for your construction company</h1>
+  <div id="buttons" class="col-md-8">
+    <div class="col-md-4"></div>
+    <div class="col-md-1"><button type="button" class="btn btn-danger btn-lg">Register</button></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-1"><button type="button" class="btn btn-danger btn-lg">Log In</button></div>
+    <div class="col-md-4"></div>
+  </div>
 </div>
+
 <div id="outerCraneContainer">
   <div class="buildings">
     <div class="0"></div>
@@ -39,3 +62,6 @@
     <div class="arm"></div>
   </div>
 </div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" id="license"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+
+</body>
+</html>
