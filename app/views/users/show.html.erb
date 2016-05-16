@@ -1,0 +1,22 @@
+ <ul>
+    <li><%= image_tag(current_user.image, class: "profile_image")%></li>
+    <li><%= current_user.name %></li>
+    <li><%= current_user.email %></li>
+    <li><%= current_user.address %></li>
+    <li><%= current_user.zip_code %></li>
+    <li><%= current_user.city %></li>
+    <li><%= current_user.country %></li>
+    <li><%= current_user.phone_number_1 %></li>
+    <li><%= current_user.phone_number_2 %></li>
+    <li><%= current_user.fax_number %></li>
+    <li><%= current_user.web_page %></li>
+  </ul>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div>
+<button type="button" id="edit_profile" class="btn btn-danger btn-lg">Edit profile</button>
+</div>

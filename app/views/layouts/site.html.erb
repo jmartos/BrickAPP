@@ -10,15 +10,6 @@
 </head>
 <body>
 
-<div id="top_bar">
-  <% if user_signed_in? %>
-    <p class="script"><span><%= link_to 'Sign out ', destroy_user_session_path, method: 'DELETE' %>---<%= link_to("Home", "/") %>---<%= link_to("Contact", "/contact") %>---<%= link_to("Support", "/support") %></span></p>
-  <% else %>
-    <p class="script"><span><%= link_to("Register", "/users/sign_up") %></span></p>
-    <p class="script"><span><%= link_to("Sign in", "/users/sign_in") %></span></p>
-  <% end %>
-</div>
-
 <%= yield %>
 
 </body>
