@@ -1,34 +1,75 @@
 #Seed users
 10.times do
-  email = [ Faker::Internet.email ].sample
-  name = [ Faker::Company.name ].sample
-  address = [ Faker::Address.street_address ].sample
-  zip_code = [ Faker::Address.zip_code ].sample
-  city = [ Faker::Address.city ].sample
-  country = [ Faker::Address.country ].sample
-  phone_number_1 = [ Faker::PhoneNumber.phone_number ].sample
-  phone_number_2 = [ Faker::PhoneNumber.cell_phone ].sample
-  fax_number = [ Faker::PhoneNumber.phone_number ].sample
-  web_page = [ Faker::Internet.url ].sample
-  image = [ Faker::Company.logo ].sample
-  password = 123456
-  password_confirmation = 123456
-  
-  puts "Creating #{email}"
   User.create(
-    email: email, 
-    name: name, 
-    address: address, 
-    zip_code: zip_code, 
-    city: city, 
-    country: country,
-    phone_number_1: phone_number_1,
-    phone_number_2: phone_number_2,
-    fax_number: fax_number,
-    web_page: web_page,
-    image: image,  
-    password: password,
-    password_confirmation: password_confirmation,
-    ) 
+    email: Faker::Internet.email, 
+    name: Faker::Company.name, 
+    address: Faker::Address.street_address, 
+    zip_code: Faker::Address.zip_code, 
+    city: Faker::Address.city, 
+    state: Faker::Address.state,
+    country: Faker::Address.country,
+    phone_number_1: Faker::PhoneNumber.phone_number,
+    phone_number_2: Faker::PhoneNumber.cell_phone,
+    fax_number: Faker::PhoneNumber.phone_number,
+    web_page: Faker::Internet.url,
+    image: Faker::Company.logo,  
+    password: 123456,
+    password_confirmation: 123456,
+    )
+  puts "User created!"
 end
+users = User.all
+
+#Seed works
+users.each do |user|
+  3.times do
+    user.works.create(
+      code: Faker::Code.isbn,
+      name: Faker::Lorem.word,
+      address: Faker::Address.street_address, 
+      zip_code: Faker::Address.zip_code, 
+      city: Faker::Address.city, 
+      state: Faker::Address.state,
+      country: Faker::Address.country,
+      client: Faker::Name.name,
+      client_phone: Faker::PhoneNumber.phone_number,
+      client_email: Faker::Internet.email,
+      client_address: Faker::Address.street_address,
+      )
+      puts "Work created!"
+  end
+end
+
+#Seed suppliers
+users.each do |user|
+  7.times do
+    user.suppliers.create(
+      name: Faker::Company.name, 
+      guild: ["plumbing", "electrical", "carpenter", "welder", "tiler", "masonry", "painter", "glazier"].sample,
+      email: Faker::Internet.email, 
+      address: Faker::Address.street_address, 
+      zip_code: Faker::Address.zip_code, 
+      city: Faker::Address.city, 
+      state: Faker::Address.state,
+      country: Faker::Address.country,
+      phone_number_1: Faker::PhoneNumber.phone_number,
+      phone_number_2: Faker::PhoneNumber.cell_phone,
+      fax_number: Faker::PhoneNumber.phone_number,
+      web_page: Faker::Internet.url,
+      )
+      puts "Supplier created!"
+  end
+end
+
+
+
+
+
+
+
+
+
+
+
+
 

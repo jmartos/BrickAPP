@@ -34,6 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :address
       t.integer :zip_code
       t.string :city
+      t.string :state
       t.string :country
       t.integer :phone_number_1
       t.integer :phone_number_2

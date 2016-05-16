@@ -20,3 +20,17 @@
 <div>
 <button type="button" id="edit_profile" class="btn btn-danger btn-lg">Edit profile</button>
 </div>
+
+</div>
+
+ <ul>Your works:
+    <% current_user.works.each do |work| %>
+    <li><%= link_to("#{work.name}", "/works/#{work.id}") %></li>
+    <% end %>
+</ul>
+
+ <ul>Your suppliers:
+    <% current_user.suppliers.each do |supplier| %>
+    <li><%= link_to("#{supplier.name}", "/suppliers/#{supplier.id}") %></li>
+    <% end %>
+</ul>

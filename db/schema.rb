@@ -17,9 +17,24 @@ ActiveRecord::Schema.define(version: 20160516142846) do
   enable_extension "plpgsql"
 
   create_table "suppliers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "guild"
+    t.string   "email"
+    t.string   "address"
+    t.integer  "zip_code"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "phone_number_1"
+    t.integer  "phone_number_2"
+    t.integer  "fax_number"
+    t.string   "web_page"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
+
+  add_index "suppliers", ["user_id"], name: "index_suppliers_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -36,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160516142846) do
     t.string   "address"
     t.integer  "zip_code"
     t.string   "city"
+    t.string   "state"
     t.string   "country"
     t.integer  "phone_number_1"
     t.integer  "phone_number_2"
@@ -50,8 +66,22 @@ ActiveRecord::Schema.define(version: 20160516142846) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "works", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "code"
+    t.string   "name"
+    t.string   "address"
+    t.integer  "zip_code"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "client"
+    t.integer  "client_phone"
+    t.string   "client_email"
+    t.string   "client_address"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
+
+  add_index "works", ["user_id"], name: "index_works_on_user_id", using: :btree
 
 end
