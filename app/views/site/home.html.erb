@@ -5,63 +5,107 @@
   <title>Document</title>
 </head>
 <body>
- 
-<nav>
-  <div id="nav" class="col-md-12">
-    <div class="col-md-10"></div>
-    <div class="col-md-1"><%= link_to("Lenguage", "/lenguage") %></div>
-    <div class="col-md-1"><%= link_to("Contact", "/contact") %></div>
-  </div>
-</nav>
 
-<div id="content">
-  <%=image_tag("brickapp_logo.png", id: "logo")%>
-  <h1>Easy managing for your construction company</h1>
-  <div id="buttons" class="col-md-8">
-    <div class="col-md-4"></div>
-    <div class="col-md-1"><button type="button" id="register" class="btn btn-danger btn-lg">Register</button></div>
-    <div class="col-md-2"></div>
-    <div class="col-md-1"><button type="button" id="login" class="btn btn-danger btn-lg">Log In</button></div>
-    <div class="col-md-4"></div>
-  </div>
-</div>
+  <!-- Navigator bar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </div>
 
-<div id="outerCraneContainer">
-  <div class="buildings">
-    <div class="0"></div>
-    <div class="1"></div>
-    <div class="2"></div>
-    <div class="3"></div>
-    <div class="4"></div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#details">What is BrickAPP?</a></li>
+          <li><%= link_to("Contact", "/contact") %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lenguge<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">English</a></li>
+              <li><a href="#">Spanish</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <!-- Logo and buttons -->
+  <div class="content-home">
+    <div class="col-md-12">
+      <%=image_tag("brickapp_logo.png", id: "logo")%>
+    </div>
+
+    <div id="buttons" class="col-md-12">
+      <div class="col-md-4"></div>
+      <div class="col-md-1"><button type="button" id="register" class="btn btn-default btn-lg" data-toggle="modal" data-target="#registration-modal">Register</button></div>
+      <div class="col-md-1"></div>
+      <div class="col-md-1"><button type="button" id="login" class="btn btn-default btn-lg" data-toggle="modal" data-target="#login-modal">Log In</button></div>
+      <div class="col-md-4"></div>
+    </div>
+
+    <div class="col-md-12">
+      <h2>Easy managing for your construction company</h2>
+    </div>
   </div>
-  <div class="crane craneThree">
-    <div class="line lineOne"></div>
-    <div class="line lineTwo"></div>
-    <div class="line lineThree"></div>
-    <div class="stand"></div>
-    <div class="weight"></div>
-    <div class="cabin"></div>
-    <div class="arm"></div>
+
+  <!-- Modal Registration-->
+  <div class="modal fade" id="registration-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Register</h4>
+        </div>
+        <div class="modal-body">
+          <%= render "registration_form" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="crane craneTwo">
-    <div class="line lineOne"></div>
-    <div class="line lineTwo"></div>
-    <div class="line lineThree"></div>
-    <div class="stand"></div>
-    <div class="weight"></div>
-    <div class="cabin"></div>
-    <div class="arm"></div>
+
+  <!-- Modal Login-->
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Log in</h4>
+        </div>
+        <div class="modal-body">
+          <%= render "login_form" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="crane craneOne">
-    <div class="line lineOne"></div>
-    <div class="line lineTwo"></div>
-    <div class="line lineThree"></div>
-    <div class="stand"></div>
-    <div class="weight"></div>
-    <div class="cabin"></div>
-    <div class="arm"></div>
+
+  <!-- Drawing -->
+  <%= render "drawing" %>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <div id="details" class="container-fluid">
+    <div class="col-md-4">
+      <%=image_tag("easy.png", id: "icon")%>
+      <h2>Easy managing for your construction company</h2>
+      <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>  
+    </div>
+    <div class="col-md-4">
+      <%=image_tag("time.png", id: "icon")%>
+      <h2>Easy managing for your construction company</h2>
+      <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+    </div>
+    <div class="col-md-4">
+      <%=image_tag("money.png", id: "icon")%>
+      <h2>Easy managing for your construction company</h2>
+      <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+    </div>
   </div>
-</div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" id="license"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+
+
+
 
 </body>
 </html>
