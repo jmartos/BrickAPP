@@ -1,1 +1,46 @@
-<h1>contact!</h1>
+  <!-- Navigator bar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+     <%= link_to(image_tag("brickapp_logo.png", id: "logo_home"), "/") %>
+     <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to("Home", "/") %></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lenguge<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">English</a></li>
+          <li><a href="#">Spanish</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
+<div class="col-md-3">
+  <div class="container">
+    <div class="jumbotron">
+      <h3>BrickAPP SL</h3>
+      <ul>
+        <li>Nuñez de Balboa st. 120</li>
+        <li>28006</li>
+        <li>Madrid</li>
+        <li>Spain</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="col-md-1"></div>
+<div class="col-md-8">
+ <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+ <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+ <div id='gmap_canvas'></div>
+</div>
+
+
+
+</div>
+<script type='text/javascript'>function init_map(){var myOptions = {zoom:16,center:new google.maps.LatLng(40.4382915,-3.681471800000054),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(40.4382915,-3.681471800000054)});infowindow = new google.maps.InfoWindow({content:'<strong>BrickAPP</strong><br>Nuñez de Balboa 120, Madrid<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+
+
+</div>
+
+
