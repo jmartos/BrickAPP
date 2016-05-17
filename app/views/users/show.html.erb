@@ -36,9 +36,9 @@
 </div>
 
 <div role="tabpanel" class="tab-pane" id="works">
-    <table id="works">
+    <table class="user-table" id="works">
         <tr>
-            <th>Id</th>
+            <th>Code</th>
             <th>Name</th>
             <th>Address</th>
             <th>ZIP code</th>
@@ -53,7 +53,7 @@
         </tr>
         <% current_user.works.each do |work| %>
         <tr id="rows-data">
-            <td><%= work.id %></td>
+            <td><%= work.code %></td>
             <td><%= work.name %></td>
             <td><%= work.address %></td>
             <td><%= work.zip_code %></td>
@@ -64,27 +64,50 @@
             <td><%= work.client_phone %></td>
             <td><%= work.client_email %></td>
             <td><%= link_to(image_tag("details.png", id: "details_icon"), "/works/#{work.id}") %></td>
-            <td><%= link_to(image_tag("details.png", id: "details_icon"), "/works/#{work.id}") %></td>
+            <td><%= link_to(image_tag("details.png", id: "details_icon"), "/works/#{work.id}/edit") %></td>
         </tr>
         <% end %>
 
     </table>
 
-
-
-
-
-
-
-
 </div>
 
 <div role="tabpanel" class="tab-pane" id="suppliers">
-    <ul>Your suppliers:
+    <table class="user-table" id="suppliers">
+        <tr>
+            <th>Name</th>
+            <th>Guild</th>
+            <th>Email</th>
+            <th>Phone 1</th>
+            <th>Phone 2</th>
+            <th>Fax</th>
+            <th>Address</th>
+            <th>ZIP code</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Country</th>
+            <th>See details</th>
+            <th>Edit</th>
+        </tr>
         <% current_user.suppliers.each do |supplier| %>
-        <li><%= link_to("#{supplier.name}", "/suppliers/#{supplier.id}") %></li>
+        <tr id="rows-data">
+            <td><%= supplier.name %></td>
+            <td><%= supplier.guild %></td>
+            <td><%= supplier.email %></td>
+            <td><%= supplier.phone_number_1 %></td>
+            <td><%= supplier.phone_number_2 %></td>
+            <td><%= supplier.fax_number %></td>
+            <td><%= supplier.address %></td>
+            <td><%= supplier.zip_code %></td>
+            <td><%= supplier.city %></td>
+            <td><%= supplier.state %></td>
+            <td><%= supplier.country %></td>
+            <td><%= link_to(image_tag("details.png", id: "details_icon"), "/suppliers/#{supplier.id}") %></td>
+            <td><%= link_to(image_tag("details.png", id: "details_icon"), "/suppliers/#{supplier.id}/edit") %></td>
+        </tr>
         <% end %>
-    </ul>
+
+    </table>
 </div> 
 </div>
 

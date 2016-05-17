@@ -21,7 +21,7 @@
   bottom: 30px; 
 }
 
-#works {
+.user-table {
   border-collapse: collapse;
   width: 90%;
   padding: 8px;
