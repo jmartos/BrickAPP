@@ -3,23 +3,17 @@
 <head>
   <title>Brickapp</title>
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<div id="top_bar">
-  <% if user_signed_in? %>
-    <p class="script"><span><%= link_to 'Sign out ', destroy_user_session_path, method: 'DELETE' %>---<%= link_to("Home", "/") %>---<%= link_to("Contact", "/contact") %>---<%= link_to("Support", "/support") %></span></p>
+<% if user_signed_in? %>
+<body id="body-login">
   <% else %>
-    <p class="script"><span><%= link_to("Register", "/users/sign_up") %></span></p>
-    <p class="script"><span><%= link_to("Sign in", "/users/sign_in") %></span></p>
-  <% end %>
-</div>
+  <body id="body-guest">  
+    <% end %>
+    <%= render "navigator" %>
+    <%= yield %>
 
-<%= yield %>
-
-</body>
-</html>
+  </body>
+  </html>

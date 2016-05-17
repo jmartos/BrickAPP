@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-</head>
-<body>
-
   <!-- Navigator bar -->
   <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -20,81 +12,78 @@
           </ul>
         </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+    </div>
+  </nav>
 
-<!-- Logo and buttons -->
-<div class="content-home">
-  <div class="col-md-12">
-    <%=image_tag("brickapp_logo.png", id: "logo")%>
+  <!-- Logo and buttons -->
+  <div class="content-home">
+    <div class="col-md-12">
+      <%=image_tag("brickapp_logo.png", id: "logo")%>
+    </div>
+
+    <div id="buttons" class="col-md-12">
+      <div class="col-md-4"></div>
+      <div class="col-md-1"><button type="button" id="register" class="btn btn-default btn-lg" data-toggle="modal" data-target="#registration-modal-sm">Register</button></div>
+      <div class="col-md-1"></div>
+      <div class="col-md-1"><button type="button" id="login" class="btn btn-default btn-lg" data-toggle="modal" data-target="#login-modal-sm">Log In</button></div>
+      <div class="col-md-4"></div>
+    </div>
+
+    <div class="col-md-12">
+      <h2>Easy managing for your construction company</h2>
+    </div>
   </div>
 
-  <div id="buttons" class="col-md-12">
-    <div class="col-md-4"></div>
-    <div class="col-md-1"><button type="button" id="register" class="btn btn-default btn-lg" data-toggle="modal" data-target="#registration-modal-sm">Register</button></div>
-    <div class="col-md-1"></div>
-    <div class="col-md-1"><button type="button" id="login" class="btn btn-default btn-lg" data-toggle="modal" data-target="#login-modal-sm">Log In</button></div>
-    <div class="col-md-4"></div>
-  </div>
-
-  <div class="col-md-12">
-    <h2>Easy managing for your construction company</h2>
-  </div>
-</div>
-
-<!-- Modal Registration-->
-<div class="modal fade" id="registration-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Register</h4>
-      </div>
-      <div class="modal-body">
-        <%= render "registration_form" %>
+  <!-- Modal Registration-->
+  <div class="modal fade" id="registration-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Register</h4>
+        </div>
+        <div class="modal-body">
+          <%= render "registration_form" %>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Modal Login-->
-<div class="modal fade" id="login-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Log in</h4>
-      </div>
-      <div class="modal-body">
-        <%= render "login_form" %>
+  <!-- Modal Login-->
+  <div class="modal fade" id="login-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Log in</h4>
+        </div>
+        <div class="modal-body">
+          <%= render "login_form" %>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Drawing -->
-<div>
-  <%= render "drawing" %>
-</div>
+  <!-- Drawing -->
+  <div>
+    <%= render "drawing" %>
+  </div>
 
-<!--  Details -->
-<div id="details" class="container-fluid">
-  <div class="col-md-4">
-    <%=image_tag("easy.png", id: "icon")%>
-    <h3>Easy and intuitive</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra tincidunt varius. Maecenas interdum dui ac ipsum interdum pellentesque nec in est. In hac habitasse platea dictumst. Proin sit amet rutrum quam, vitae pulvinar dui. Nullam aliquet ex ac augue sollicitudin aliquam. Morbi sit amet consectetur justo, a sollicitudin orci. Duis pulvinar scelerisque cursus. Nullam mattis id dui et luctus. Donec facilisis convallis dolor ut mattis. Fusce blandit nec libero id hendrerit. Vestibulum mauris odio, hendrerit vel nisl et, aliquam elementum magna. Etiam dignissim, mi sed ultrices luctus, purus justo rhoncus urna, id cursus nisl risus ut neque. Suspendisse pellentesque accumsan lectus ac congue. Aliquam finibus lorem sed magna pellentesque faucibus.</p>  
+  <!--  Details -->
+  <div id="details" class="container-fluid">
+    <div class="col-md-4">
+      <%=image_tag("easy.png", id: "icon")%>
+      <h3>Easy and intuitive</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra tincidunt varius. Maecenas interdum dui ac ipsum interdum pellentesque nec in est. In hac habitasse platea dictumst. Proin sit amet rutrum quam, vitae pulvinar dui. Nullam aliquet ex ac augue sollicitudin aliquam. Morbi sit amet consectetur justo, a sollicitudin orci. Duis pulvinar scelerisque cursus. Nullam mattis id dui et luctus. Donec facilisis convallis dolor ut mattis. Fusce blandit nec libero id hendrerit. Vestibulum mauris odio, hendrerit vel nisl et, aliquam elementum magna. Etiam dignissim, mi sed ultrices luctus, purus justo rhoncus urna, id cursus nisl risus ut neque. Suspendisse pellentesque accumsan lectus ac congue. Aliquam finibus lorem sed magna pellentesque faucibus.</p>  
+    </div>
+    <div class="col-md-4">
+      <%=image_tag("time.png", id: "icon")%>
+      <h3>Save time</h3>
+      <p>Cras molestie leo a massa tempor, vitae facilisis lectus suscipit. Nam vitae purus odio. Suspendisse molestie luctus justo, vitae efficitur eros rhoncus eu. Mauris fermentum, lacus sit amet pretium imperdiet, ipsum ex rhoncus dui, ac maximus tellus urna id ligula. Cras a vehicula erat, a pharetra quam. Proin sit amet rutrum velit, sed lobortis magna. Aliquam laoreet ultricies fringilla. Phasellus luctus, lacus vitae ornare scelerisque, enim diam dictum ipsum, ornare dapibus augue ipsum et justo. Sed a nulla porttitor, mattis lorem nec, convallis felis. Nam vulputate sapien a ultricies egestas. Suspendisse erat magna, laoreet id eleifend id, sagittis et lacus. Nullam nisl nisi, venenatis ac neque at, ultricies tristique augue. Etiam nisi diam, faucibus sit amet tristique nec, faucibus ut mi. Vivamus gravida lacinia justo, nec bibendum est fringilla eu. Duis pretium tincidunt ultricies. Etiam convallis iaculis est, eu ornare lacus rhoncus in.</p>
+    </div>
+    <div class="col-md-4">
+      <%=image_tag("money.png", id: "icon")%>
+      <h3>Save money</h3>
+      <p>Donec dictum libero hendrerit nulla mollis, non rhoncus magna accumsan. Donec sagittis ullamcorper arcu, eget elementum urna lacinia eu. Mauris facilisis pellentesque lacus. Cras pretium lacus auctor ante auctor, vel lacinia justo mollis. Quisque nunc nibh, vehicula et cursus id, venenatis vitae sem. Nulla id laoreet eros, sed imperdiet tortor. Nulla scelerisque, sem a sagittis consequat, justo justo vulputate est, dapibus volutpat quam tellus id nibh. Pellentesque volutpat nibh non lobortis dictum. Praesent sodales nibh sit amet nunc molestie commodo. Suspendisse eu sapien magna. Aenean ut turpis accumsan ante convallis egestas. Vestibulum vitae sodales nulla, ut facilisis turpis. In maximus tortor a nisi molestie, eget vestibulum enim euismod. Morbi facilisis tristique nisi, sed fringilla sapien condimentum in.</p>
+    </div>
   </div>
-  <div class="col-md-4">
-    <%=image_tag("time.png", id: "icon")%>
-    <h3>Save time</h3>
-    <p>Cras molestie leo a massa tempor, vitae facilisis lectus suscipit. Nam vitae purus odio. Suspendisse molestie luctus justo, vitae efficitur eros rhoncus eu. Mauris fermentum, lacus sit amet pretium imperdiet, ipsum ex rhoncus dui, ac maximus tellus urna id ligula. Cras a vehicula erat, a pharetra quam. Proin sit amet rutrum velit, sed lobortis magna. Aliquam laoreet ultricies fringilla. Phasellus luctus, lacus vitae ornare scelerisque, enim diam dictum ipsum, ornare dapibus augue ipsum et justo. Sed a nulla porttitor, mattis lorem nec, convallis felis. Nam vulputate sapien a ultricies egestas. Suspendisse erat magna, laoreet id eleifend id, sagittis et lacus. Nullam nisl nisi, venenatis ac neque at, ultricies tristique augue. Etiam nisi diam, faucibus sit amet tristique nec, faucibus ut mi. Vivamus gravida lacinia justo, nec bibendum est fringilla eu. Duis pretium tincidunt ultricies. Etiam convallis iaculis est, eu ornare lacus rhoncus in.</p>
-  </div>
-  <div class="col-md-4">
-    <%=image_tag("money.png", id: "icon")%>
-    <h3>Save money</h3>
-    <p>Donec dictum libero hendrerit nulla mollis, non rhoncus magna accumsan. Donec sagittis ullamcorper arcu, eget elementum urna lacinia eu. Mauris facilisis pellentesque lacus. Cras pretium lacus auctor ante auctor, vel lacinia justo mollis. Quisque nunc nibh, vehicula et cursus id, venenatis vitae sem. Nulla id laoreet eros, sed imperdiet tortor. Nulla scelerisque, sem a sagittis consequat, justo justo vulputate est, dapibus volutpat quam tellus id nibh. Pellentesque volutpat nibh non lobortis dictum. Praesent sodales nibh sit amet nunc molestie commodo. Suspendisse eu sapien magna. Aenean ut turpis accumsan ante convallis egestas. Vestibulum vitae sodales nulla, ut facilisis turpis. In maximus tortor a nisi molestie, eget vestibulum enim euismod. Morbi facilisis tristique nisi, sed fringilla sapien condimentum in.</p>
-  </div>
-</div>
-</body>
-</html>

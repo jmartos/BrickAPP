@@ -1,36 +1,93 @@
- <ul>
-    <li><%= image_tag(current_user.image, class: "profile_image")%></li>
-    <li><%= current_user.name %></li>
-    <li><%= current_user.email %></li>
-    <li><%= current_user.address %></li>
-    <li><%= current_user.zip_code %></li>
-    <li><%= current_user.city %></li>
-    <li><%= current_user.country %></li>
-    <li><%= current_user.phone_number_1 %></li>
-    <li><%= current_user.phone_number_2 %></li>
-    <li><%= current_user.fax_number %></li>
-    <li><%= current_user.web_page %></li>
-  </ul>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div>
-<button type="button" id="edit_profile" class="btn btn-danger btn-lg">Edit profile</button>
-</div>
+ <div class="user-content">
 
-</div>
-
- <ul>Your works:
-    <% current_user.works.each do |work| %>
-    <li><%= link_to("#{work.name}", "/works/#{work.id}") %></li>
-    <% end %>
+  <!-- Nav tabs -->
+  <div class="col-md-2"></div>
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+    <li role="presentation"><a href="#works" aria-controls="works" role="tab" data-toggle="tab">Works</a></li>
+    <li role="presentation"><a href="#suppliers" aria-controls="suppliers" role="tab" data-toggle="tab">Suppliers</a></li>
 </ul>
 
- <ul>Your suppliers:
-    <% current_user.suppliers.each do |supplier| %>
-    <li><%= link_to("#{supplier.name}", "/suppliers/#{supplier.id}") %></li>
-    <% end %>
-</ul>
+<!-- Tab panes -->
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane" id="profile">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+            <%= image_tag(current_user.image, class: "profile_image")%>
+        </div>
+        <div class="col-md-5">
+            <ul class="list-group">
+              <li class="list-group-item"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span><%= current_user.name %></li>
+              <li class="list-group-item"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><%= current_user.email %></li>
+              <li class="list-group-item"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><%= current_user.address %></li>
+              <li class="list-group-item"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span><%= current_user.zip_code %></li>
+              <li class="list-group-item"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= current_user.city %></li>
+              <li class="list-group-item"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><%= current_user.state %></li>
+              <li class="list-group-item"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span><%= current_user.country %></li>
+              <li class="list-group-item"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><%= current_user.phone_number_1 %></li>
+              <li class="list-group-item"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><%= current_user.phone_number_2 %></li>
+              <li class="list-group-item"><span class="glyphicon glyphicon-open-file" aria-hidden="true"></span><%= current_user.fax_number %></li>
+              <li class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span><%= current_user.web_page %></li>
+          </ul>
+      </div>
+      <div class="col-md-2">
+        <button type="button" id="edit_profile" class="btn btn-danger">Edit profile</button>
+    </div>
+</div>
+
+<div role="tabpanel" class="tab-pane" id="works">
+    <table id="works">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>ZIP code</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Country</th>
+            <th>Client</th>
+            <th>Client phone</th>
+            <th>Client email</th>
+            <th>See details</th>
+            <th>Edit</th>
+        </tr>
+        <% current_user.works.each do |work| %>
+        <tr id="rows-data">
+            <td><%= work.id %></td>
+            <td><%= work.name %></td>
+            <td><%= work.address %></td>
+            <td><%= work.zip_code %></td>
+            <td><%= work.city %></td>
+            <td><%= work.state %></td>
+            <td><%= work.country %></td>
+            <td><%= work.client %></td>
+            <td><%= work.client_phone %></td>
+            <td><%= work.client_email %></td>
+            <td><%= link_to(image_tag("details.png", id: "details_icon"), "/works/#{work.id}") %></td>
+            <td><%= link_to(image_tag("details.png", id: "details_icon"), "/works/#{work.id}") %></td>
+        </tr>
+        <% end %>
+
+    </table>
+
+
+
+
+
+
+
+
+</div>
+
+<div role="tabpanel" class="tab-pane" id="suppliers">
+    <ul>Your suppliers:
+        <% current_user.suppliers.each do |supplier| %>
+        <li><%= link_to("#{supplier.name}", "/suppliers/#{supplier.id}") %></li>
+        <% end %>
+    </ul>
+</div> 
+</div>
+
+
+
+
