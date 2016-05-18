@@ -14,6 +14,9 @@ class CreateSuppliers < ActiveRecord::Migration
       t.integer :phone_number_2
       t.integer :fax_number
       t.string :web_page
+      t.integer :user_valoration
+      t.integer :budget_valoration
+      t.integer :fixes_percentage_valoration
 
       t.timestamps null: false
     end

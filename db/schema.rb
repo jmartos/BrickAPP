@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516142846) do
+ActiveRecord::Schema.define(version: 20160518070201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "fixes", force: :cascade do |t|
+    t.integer  "work_id"
+    t.integer  "supplier_id"
+    t.integer  "code"
+    t.string   "picture"
+    t.string   "localization"
+    t.string   "comment"
+    t.boolean  "check",        default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "fixes", ["supplier_id"], name: "index_fixes_on_supplier_id", using: :btree
+  add_index "fixes", ["work_id"], name: "index_fixes_on_work_id", using: :btree
 
   create_table "suppliers", force: :cascade do |t|
     t.integer  "user_id"
@@ -30,8 +45,11 @@ ActiveRecord::Schema.define(version: 20160516142846) do
     t.integer  "phone_number_2"
     t.integer  "fax_number"
     t.string   "web_page"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "user_valoration"
+    t.integer  "budget_valoration"
+    t.integer  "fixes_percentage_valoration"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "suppliers", ["user_id"], name: "index_suppliers_on_user_id", using: :btree
