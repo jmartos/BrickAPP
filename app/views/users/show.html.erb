@@ -67,8 +67,10 @@
             <td><%= link_to(image_tag("details.png", id: "details_icon"), "/works/#{work.id}/edit") %></td>
         </tr>
         <% end %>
-
     </table>
+    <div class="col-md-2">
+        <button type="button" id="new-work" class="btn btn-success">New Work</button>
+    </div>
 
 </div>
 
@@ -106,8 +108,10 @@
             <td><%= link_to(image_tag("details.png", id: "details_icon"), "/suppliers/#{supplier.id}/edit") %></td>
         </tr>
         <% end %>
-
     </table>
+    <div class="col-md-2">
+        <button type="button" id="new-supplier" class="btn btn-success">New Work</button>
+    </div>
 </div> 
 </div>
 

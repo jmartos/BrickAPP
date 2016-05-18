@@ -1,13 +1,13 @@
 $(document).ready(function () {
-  // $("#register").click(function () {
-  //   window.location.href = "/users/sign_up";
-  // })
-  // $("#login").click(function () {
-  //   window.location.href = "/users/sign_in";
-  // })
-$("#edit_profile").click(function () {
-  window.location.href = "/users/edit";
-})
+  $("#edit_profile").click(function () {
+    window.location.href = "/users/edit";
+  })
+  $("#new-work").click(function () {
+    window.location.href = "/works/new";
+  })
+  $("#new-supplier").click(function () {
+    window.location.href = "/suppliers/new";
+  })
 })
 
 

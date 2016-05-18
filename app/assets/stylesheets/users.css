@@ -6,11 +6,11 @@
   background-color: #E5E6E4;
   border-radius: 0px;
   border: 0px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .tab-content {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .glyphicon {
@@ -40,4 +40,20 @@ td{
 #details_icon {
   height: 20px;
   width: auto;
+}
+
+#new-work {
+  margin: 20px;
+}
+
+#new-supplier {
+  margin: 20px;
+}
+
+#user-edit-normal {
+  margin-left: 50px;
+}
+
+.field{
+  width: 200px;
 }
