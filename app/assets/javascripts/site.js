@@ -8,6 +8,25 @@ $(document).ready(function () {
   $("#new-supplier").click(function () {
     window.location.href = "/suppliers/new";
   })
+  $("#new-fix").click(function () {
+    window.location.href = "/home";
+  })
+
+  $(".check-fix").on("click", function() {
+    if($(this).hasClass("Pendent")){
+      $(this).html("Done!");
+      $(this).removeClass("btn-danger").addClass("btn-success");
+      $.ajax({
+        type:'POST',
+        url:'./fixes/'+this.id'/check',
+      });
+
+    }else {
+      $(this).html("Pendent");
+      $(this).removeClass("btn-success").addClass("btn-danger");
+    }
+    $(this).toggleClass("Pendent");
+  });
 })
 
 

@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   #   resources :fixes
   # end
 
-  get 'works/:work_id/fixes/', to: 'fixes#index'
-  get 'suppliers/:supplier_id/fixes/', to: 'fixes#index'
+  get 'works/:work_id/fixes', to: 'fixes#index'
+  post 'works/:work_id/fixes/:id/check', to: 'fixes#check'
 end

@@ -1,1 +1,38 @@
-eeeee
+<div role="tabpanel" class="tab-pane" id="works">
+  <table class="user-table" id="works">
+    <tr>
+      <th>Nr.</th>
+      <th>Code</th>
+      <th>Picture</th>
+      <th>Localization</th>
+      <th>Comment</th>
+      <th>Check</th>
+      <th>Edit</th>
+    </tr>
+    <% @fixes.each do |fix| %>
+    <tr id="rows-data">
+      <th>0</th>
+      <td><%= fix.code %></td>
+      <td><%= fix.picture %></td>
+      <td><%= fix.localization %></td>
+      <td><%= fix.comment %></td>
+      <td><% if fix.check == false %>
+        <button class="btn btn-danger check-fix pendent">Pendent</button></td>
+        <% else %>
+        <button class="btn btn-success check-fix pendent">Done</button></td>
+        <% end %>
+        <td>
+
+
+
+
+
+
+
+        </td>
+      </tr>
+      <% end %>
+    </table>
+    <div class="col-md-2">
+      <button type="button" id="new-fix" class="btn btn-success">New Fix</button>
+    </div>
