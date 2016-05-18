@@ -85,4 +85,8 @@
 </div>
 <% end %>
 
+<h3>Delete supplier</h3>
+
+<p><%= button_to "Delete supplier", @supplier, data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>
+
 <%= link_to "Back", :back %>

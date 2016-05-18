@@ -1,0 +1,33 @@
+<div role="tabpanel" class="tab-pane" id="suppliers">
+    <table class="user-table" id="suppliers">
+        <tr>
+            <th>Name</th>
+            <th>Guild</th>
+            <th>Email</th>
+            <th>Phone 1</th>
+            <th>Phone 2</th>
+            <th>Fax</th>
+            <th>Web page</th>
+            <th>Address</th>
+            <th>ZIP code</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Country</th>
+        </tr>
+        <tr id="rows-data">
+            <td><%= @supplier.name %></td>
+            <td><%= @supplier.guild %></td>
+            <td><%= @supplier.email %></td>
+            <td><%= @supplier.phone_number_1 %></td>
+            <td><%= @supplier.phone_number_2 %></td>
+            <td><%= @supplier.fax_number %></td>
+            <td><%= @supplier.web_page %></td>
+            <td><%= @supplier.address %></td>
+            <td><%= @supplier.zip_code %></td>
+            <td><%= @supplier.city %></td>
+            <td><%= @supplier.state %></td>
+            <td><%= @supplier.country %></td>
+        </tr>
+    </table>
+
+    <%= link_to "Back", :back %>

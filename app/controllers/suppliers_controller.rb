@@ -53,4 +53,9 @@ class SuppliersController < ApplicationController
     # end
   end
 
+  def destroy
+    @supplier = Supplier.find(params[:id]).destroy
+    redirect_to "/profile"
+  end
+
 end

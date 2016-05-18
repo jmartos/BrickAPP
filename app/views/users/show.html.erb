@@ -41,13 +41,13 @@
             <th>Code</th>
             <th>Name</th>
             <th>Address</th>
-            <th>ZIP code</th>
             <th>City</th>
             <th>State</th>
             <th>Country</th>
             <th>Client</th>
             <th>Client phone</th>
             <th>Client email</th>
+            <th>Fixes report</th>
             <th>See details</th>
             <th>Edit</th>
         </tr>
@@ -56,13 +56,13 @@
             <td><%= work.code %></td>
             <td><%= work.name %></td>
             <td><%= work.address %></td>
-            <td><%= work.zip_code %></td>
             <td><%= work.city %></td>
             <td><%= work.state %></td>
             <td><%= work.country %></td>
             <td><%= work.client %></td>
             <td><%= work.client_phone %></td>
             <td><%= work.client_email %></td>
+            <td><%= link_to(image_tag("details.png", id: "details_icon"), "/fixes/#{work.id}") %></td>
             <td><%= link_to(image_tag("details.png", id: "details_icon"), "/works/#{work.id}") %></td>
             <td><%= link_to(image_tag("details.png", id: "details_icon"), "/works/#{work.id}/edit") %></td>
         </tr>
@@ -81,13 +81,9 @@
             <th>Guild</th>
             <th>Email</th>
             <th>Phone 1</th>
-            <th>Phone 2</th>
-            <th>Fax</th>
             <th>Address</th>
-            <th>ZIP code</th>
             <th>City</th>
             <th>State</th>
-            <th>Country</th>
             <th>See details</th>
             <th>Edit</th>
         </tr>
@@ -97,20 +93,16 @@
             <td><%= supplier.guild %></td>
             <td><%= supplier.email %></td>
             <td><%= supplier.phone_number_1 %></td>
-            <td><%= supplier.phone_number_2 %></td>
-            <td><%= supplier.fax_number %></td>
             <td><%= supplier.address %></td>
-            <td><%= supplier.zip_code %></td>
             <td><%= supplier.city %></td>
             <td><%= supplier.state %></td>
-            <td><%= supplier.country %></td>
             <td><%= link_to(image_tag("details.png", id: "details_icon"), "/suppliers/#{supplier.id}") %></td>
             <td><%= link_to(image_tag("details.png", id: "details_icon"), "/suppliers/#{supplier.id}/edit") %></td>
         </tr>
         <% end %>
     </table>
     <div class="col-md-2">
-        <button type="button" id="new-supplier" class="btn btn-success">New Work</button>
+        <button type="button" id="new-supplier" class="btn btn-success">Add Supplier</button>
     </div>
 </div> 
 </div>

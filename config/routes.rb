@@ -7,4 +7,15 @@ Rails.application.routes.draw do
 
   resources :works
   resources :suppliers 
+
+  # namespace :work_id do
+  #   resources :fixes
+  # end
+
+  # namespace :supplier_id do
+  #   resources :fixes
+  # end
+
+  get 'works/:work_id/fixes/', to: 'fixes#index'
+  get 'suppliers/:supplier_id/fixes/', to: 'fixes#index'
 end

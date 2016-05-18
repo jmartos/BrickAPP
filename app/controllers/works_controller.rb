@@ -51,4 +51,9 @@ class WorksController < ApplicationController
     #   render "edit"
     # end
   end
+
+  def destroy
+    @work = Work.find(params[:id]).destroy
+    redirect_to "/profile"
+  end
 end

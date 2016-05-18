@@ -1,5 +1,5 @@
 #Seed users
-10.times do
+1.times do
   User.create(
     email: Faker::Internet.email, 
     name: Faker::Company.name, 
@@ -22,7 +22,7 @@ users = User.all
 
 #Seed works
 users.each do |user|
-  3.times do
+  5.times do
     user.works.create(
       code: Faker::Code.isbn,
       name: Faker::Lorem.word,
@@ -36,13 +36,13 @@ users.each do |user|
       client_email: Faker::Internet.email,
       client_address: Faker::Address.street_address,
       )
-      puts "Work created!"
+    puts "Work created!"
   end
 end
 
 #Seed suppliers
 users.each do |user|
-  7.times do
+  5.times do
     user.suppliers.create(
       name: Faker::Company.name, 
       guild: ["plumbing", "electrical", "carpenter", "welder", "tiler", "masonry", "painter", "glazier"].sample,
@@ -57,11 +57,21 @@ users.each do |user|
       fax_number: Faker::PhoneNumber.phone_number,
       web_page: Faker::Internet.url,
       )
-      puts "Supplier created!"
+    puts "Supplier created!"
   end
 end
 
-
+10.times do
+  Fix.create(
+    work_id: 1,
+    supplier_id: 1,
+    code: 123,
+    picture: feo,
+    localization: ["hall", "kitchen", "bathroom", "corridor", "balcony"].sample,
+    comment: shitty shit,
+    )
+  puts "Fix created!"
+end
 
 
 
