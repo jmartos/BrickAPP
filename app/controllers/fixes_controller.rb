@@ -23,13 +23,7 @@ class FixesController < ApplicationController
 
   def create
     @work = Work.find(params[:work_id])
-    @fix = @work.fixes.create(
-      :code => params[:fix][:code],
-      :picture => params[:fix][:picture],
-      :localization => params[:fix][:localization],
-      :comment => params[:fix][:comment],
-      :supplier_id => params[:fix][:supplier_id],
-      )
+    @fix = @work.fixes.create(fix_params)
     if @fix.save
       redirect_to fix_index_path
     else 
@@ -38,13 +32,28 @@ class FixesController < ApplicationController
   end
 
   def edit
+   @work = Work.find(params[:work_id])
+   @fix = Fix.find(params[:id])
+ end
+
+ def update
+  @fix = Fix.find(params[:id]).update(fix_params)
+  if @work.save
+    redirect_to fix_index_path
+  else 
+    render "edit"
   end
+end
 
-  def update
-  end
+def destroy
+  @fix = Fix.find(params[:id]).destroy
+  # redirect_to fix_index_path
+end
 
-  def destroy
-  end
 
+private
 
+def fix_params
+  params.require(:fix).permit(:code, :picture, :localization, :comment, :supplier_id)
+end
 end

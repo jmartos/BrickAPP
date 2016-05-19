@@ -62,7 +62,7 @@
             <td><%= work.client %></td>
             <td><%= work.client_phone %></td>
             <td><%= work.client_email %></td>
-            <td><%= link_to(image_tag("details.png", id: "details_icon"), "/fixes/#{work.id}") %></td>
+            <td><%= link_to(image_tag("details.png", id: "details_icon"), "/works/#{work.id}/fixes") %></td>
             <td><%= link_to(image_tag("details.png", id: "details_icon"), "/works/#{work.id}") %></td>
             <td><%= link_to(image_tag("details.png", id: "details_icon"), "/works/#{work.id}/edit") %></td>
         </tr>

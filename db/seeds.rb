@@ -66,7 +66,6 @@ end
     work_id: 1,
     supplier_id: 1,
     code: 123,
-    picture: "feo",
     localization: ["hall", "kitchen", "bathroom", "corridor", "balcony"].sample,
     comment: "shitty shit",
     )

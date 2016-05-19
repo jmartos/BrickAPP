@@ -1,40 +1,42 @@
 <div role="tabpanel" class="tab-pane" id="works">
-  <table class="user-table" id="works">
-    <tr>
-      <th>Nr.</th>
-      <th>Code</th>
-      <th>Picture</th>
-      <th>Localization</th>
-      <th>Comment</th>
-      <th>Guild</th>
-      <th>Supplier</th>
-      <th>Comment</th>
-      <th>Check</th>
-      <th>Edit</th>
-    </tr>
-    <% i=1 %>
-    <% @fixes.each do |fix| %>
-    <tr id="rows-data">
-      <th><%= i %>
-      </th>
-      <td><%= fix.code %></td>
-      <td><%= fix.picture %></td>
-      <td><%= fix.localization %></td>
-      <td><%= fix.comment %></td>
-      <td><%= fix.supplier.guild %></td>
-      <td><%= fix.supplier.name %></td>
-      <td><%= fix.comment %></td>
-      <td><% if fix.check == false %>
-        <%= button_to 'Pendent', fixes_check_path(@work,fix), remote:true, class: "btn btn-danger" %>
-        <% else %>
-        <%= button_to 'Done', fixes_check_path(@work,fix), remote:true, class: "btn btn-success" %>
-        <% end %>
-        <% i+=1 %>
-      </td>
-      <td><%= link_to(image_tag("details.png", id: "details_icon"), "/works/#{}/edit") %></td>
-    </tr>
-    <% end %>
-  </table>
-  <div class="col-md-2">
-   <%= button_to "New Fix", fix_new_path, method: :get, class: "btn btn-success" %>
- </div>
+ <%= button_to "New Fix", fix_new_path, method: :get, class: "btn btn-success" %>
+ <%= button_to "Close work", suppliers_valorations_path, method: :get, class: "btn btn-success" %>
+ <table class="user-table" id="works">
+  <tr>
+    <th>Nr.</th>
+    <th>Code</th>
+    <th>Picture</th>
+    <th>Localization</th>
+    <th>Comment</th>
+    <th>Guild</th>
+    <th>Supplier</th>
+    <th>Comment</th>
+    <th>Check</th>
+    <th>Edit</th>
+  </tr>
+  <% i=1 %>
+  <% @fixes.each do |fix| %>
+  <tr id="rows-data">
+    <th><%= i %>
+    </th>
+    <td><%= fix.code %></td>
+    <td><%= image_tag fix.picture.url(:medium) %></td>
+    <td><%= fix.localization %></td>
+    <td><%= fix.comment %></td>
+    <td><%= fix.supplier.guild %></td>
+    <td><%= fix.supplier.name %></td>
+    <td><%= fix.comment %></td>
+    <td><% if fix.check == false %>
+      <%= button_to 'Pendent', fixes_check_path(@work,fix), remote:true, class: "btn btn-danger" %>
+      <% else %>
+      <%= button_to 'Done', fixes_check_path(@work,fix), remote:true, class: "btn btn-success" %>
+      <% end %>
+      <% i+=1 %>
+    </td>
+    <td><%= link_to (image_tag("details.png", id: "details_icon")), "./#{fix.id}/edit" %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= button_to "New Fix", fix_new_path, method: :get, class: "btn btn-success" %>
+<%= button_to "New Fix", fix_new_path, method: :get, class: "btn btn-success" %>

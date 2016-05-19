@@ -20,12 +20,15 @@ ActiveRecord::Schema.define(version: 20160518070201) do
     t.integer  "work_id"
     t.integer  "supplier_id"
     t.integer  "code"
-    t.string   "picture"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
     t.string   "localization"
     t.string   "comment"
-    t.boolean  "check",        default: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "check",                default: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   add_index "fixes", ["supplier_id"], name: "index_fixes_on_supplier_id", using: :btree

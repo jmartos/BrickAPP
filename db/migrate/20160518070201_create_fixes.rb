@@ -4,7 +4,7 @@ class CreateFixes < ActiveRecord::Migration
       t.references :work, index: true
       t.references :supplier, index: true
       t.integer :code
-      t.string :picture
+      t.attachment :picture
       t.string :localization
       t.string :comment
       t.boolean :check, :default => false
