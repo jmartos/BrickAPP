@@ -17,5 +17,7 @@ Rails.application.routes.draw do
   # end
 
   get 'works/:work_id/fixes', to: 'fixes#index'
-  post 'works/:work_id/fixes/:id/check', to: 'fixes#check'
+  post 'works/:work_id/fixes/:id/check', to: 'fixes#check', as: 'fixes_check'
 end
+
+# pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start

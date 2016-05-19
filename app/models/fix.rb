@@ -2,11 +2,11 @@ class Fix < ActiveRecord::Base
   belongs_to :work
   belongs_to :supplier
 
-  def check (fix)
-    if fix.check == true
-      fix.check = false
+  def check_status
+    if self.check == true
+      self.check = false
     else
-      fix.check = true
+      self.check = true
     end
 
   end

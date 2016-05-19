@@ -8,7 +8,11 @@ class FixesController < ApplicationController
 
   def check
     @fix = Fix.find(params[:id])
-    @fix.check(@fix)
+    @fix.update_attribute(:check, @fix.check_status)
+    @fix.save
+    respond_to do |format|
+      format.js{}
+    end
   end
 
 
