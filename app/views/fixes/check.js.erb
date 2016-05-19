@@ -1,12 +1,15 @@
 console.log("entra");
 
-if($(this).hasClass("Pendent")){
-  console.log("entra");
-  $(this).html("Done!");
-  $(this).removeClass("btn-danger").addClass("btn-success");
-} else {
-  $(this).html("Pendent");
-  $(this).removeClass("btn-success").addClass("btn-danger");
-}
 
-// $(this).toggleClass("Pendent");
+$(document).ready(function () {
+  if($(this).hasClass("Pendent")){
+    console.log("entra");
+    $(this).html("Done!");
+    $(this).removeClass("btn-danger").addClass("btn-success");
+  } else {
+    console.log("entraaaaaaaa");
+    $(this).html("Pendent");
+    $(this).removeClass("btn-success").addClass("btn-danger");
+  }
+  location.reload();
+})

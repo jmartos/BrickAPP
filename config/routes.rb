@@ -8,15 +8,9 @@ Rails.application.routes.draw do
   resources :works
   resources :suppliers 
 
-  # namespace :work_id do
-  #   resources :fixes
-  # end
-
-  # namespace :supplier_id do
-  #   resources :fixes
-  # end
-
-  get 'works/:work_id/fixes', to: 'fixes#index'
+  get 'works/:work_id/fixes', to: 'fixes#index', as: 'fix_index'
+  get 'works/:work_id/fixes/new', to: 'fixes#new', as: 'fix_new'
+  post 'works/:work_id/fixes/new', to: 'fixes#create'
   post 'works/:work_id/fixes/:id/check', to: 'fixes#check', as: 'fixes_check'
 end
 

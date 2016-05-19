@@ -6,35 +6,35 @@
       <th>Picture</th>
       <th>Localization</th>
       <th>Comment</th>
+      <th>Guild</th>
+      <th>Supplier</th>
+      <th>Comment</th>
       <th>Check</th>
       <th>Edit</th>
     </tr>
+    <% i=1 %>
     <% @fixes.each do |fix| %>
     <tr id="rows-data">
-      <th>0</th>
+      <th><%= i %>
+      </th>
       <td><%= fix.code %></td>
       <td><%= fix.picture %></td>
       <td><%= fix.localization %></td>
       <td><%= fix.comment %></td>
+      <td><%= fix.supplier.guild %></td>
+      <td><%= fix.supplier.name %></td>
+      <td><%= fix.comment %></td>
       <td><% if fix.check == false %>
-        <%= button_to 'Pendent', fixes_check_path(@work,fix), remote:true %>
-        <button id="<%= fix.id %>" class="btn btn-danger check-fix pendent" data-remote="true">Pendent</button>
+        <%= button_to 'Pendent', fixes_check_path(@work,fix), remote:true, class: "btn btn-danger" %>
+        <% else %>
+        <%= button_to 'Done', fixes_check_path(@work,fix), remote:true, class: "btn btn-success" %>
+        <% end %>
+        <% i+=1 %>
       </td>
-      <% else %>
-      <button class="btn btn-success check-fix pendent">Done</button></td>
-      <% end %>
-      <td>
-
-
-
-
-
-
-
-      </td>
+      <td><%= link_to(image_tag("details.png", id: "details_icon"), "/works/#{}/edit") %></td>
     </tr>
     <% end %>
   </table>
   <div class="col-md-2">
-    <button type="button" id="new-fix" class="btn btn-success">New Fix</button>
-  </div>
+   <%= button_to "New Fix", fix_new_path, method: :get, class: "btn btn-success" %>
+ </div>

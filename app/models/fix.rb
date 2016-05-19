@@ -8,6 +8,5 @@ class Fix < ActiveRecord::Base
     else
       self.check = true
     end
-
   end
 end
