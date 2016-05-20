@@ -5,7 +5,7 @@ class Fix < ActiveRecord::Base
   has_attached_file :picture, 
   :path => ":rails_root/public/system/:attachment/:id/:basename_:style.:extension",
   :url => "/system/:attachment/:id/:basename_:style.:extension",
-  :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  :styles => { :medium => "150x150>", :thumb => "100x100>" }
 
   validates_attachment :picture,
   :size => { :in => 0..10.megabytes },

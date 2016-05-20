@@ -1,33 +1,23 @@
-<div role="tabpanel" class="tab-pane" id="suppliers">
-    <table class="user-table" id="suppliers">
-        <tr>
-            <th>Name</th>
-            <th>Guild</th>
-            <th>Email</th>
-            <th>Phone 1</th>
-            <th>Phone 2</th>
-            <th>Fax</th>
-            <th>Web page</th>
-            <th>Address</th>
-            <th>ZIP code</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Country</th>
-        </tr>
-        <tr id="rows-data">
-            <td><%= @supplier.name %></td>
-            <td><%= @supplier.guild %></td>
-            <td><%= @supplier.email %></td>
-            <td><%= @supplier.phone_number_1 %></td>
-            <td><%= @supplier.phone_number_2 %></td>
-            <td><%= @supplier.fax_number %></td>
-            <td><%= @supplier.web_page %></td>
-            <td><%= @supplier.address %></td>
-            <td><%= @supplier.zip_code %></td>
-            <td><%= @supplier.city %></td>
-            <td><%= @supplier.state %></td>
-            <td><%= @supplier.country %></td>
-        </tr>
-    </table>
-
+<div id="edit" class="col-md-12">
+  <h3>Supplier details</h3>
+  <div class="col-md-5">
+      <ul class="list-group">
+        <li class="list-group-item"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span><%= @supplier.name %></li>
+        <li class="list-group-item"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><%= @supplier.guild %></li>
+        <li class="list-group-item"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><%= @supplier.email %></li>
+        <li class="list-group-item"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><%= @supplier.phone_number_1 %></li>
+        <li class="list-group-item"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><%= @supplier.phone_number_2 %></li>
+        <li class="list-group-item"><span class="glyphicon glyphicon-open-file" aria-hidden="true"></span><%= @supplier.fax_number %></li>
+        <li class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span><%= @supplier.web_page %></li>
+    </div>
+    <div class="col-md-5">
+        <li class="list-group-item"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><%= @supplier.address %></li>
+        <li class="list-group-item"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span><%= @supplier.zip_code %></li>
+        <li class="list-group-item"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= @supplier.city %></li>
+        <li class="list-group-item"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><%= @supplier.state %></li>
+        <li class="list-group-item"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span><%= @supplier.country %></li>
+    </div>
     <%= link_to "Back", :back %>
+</ul>
+</div>
+</div>

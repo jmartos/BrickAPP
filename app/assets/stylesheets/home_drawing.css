@@ -344,7 +344,8 @@ html,
   box-sizing: border-box;
 }
 #body-guest {
-  background-color: #CFDBD5;
+  background-color: #FFF;
+  ;
 }
 
 #content {
