@@ -14,7 +14,9 @@
       </ul>
     </div>
   </nav>
-
+  <% flash.each do|key, msg| %>
+  <%= content_tag :div, msg, id: key %>
+  <% end %>
   <!-- Logo and buttons -->
   <div class="content-home">
     <div class="col-md-12">

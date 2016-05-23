@@ -2,7 +2,7 @@ class CreateWorks < ActiveRecord::Migration
   def change
     create_table :works do |t|
       t.references :user, index: true
-      t.integer :code
+      t.string :code
       t.string :name
       t.string :address
       t.integer :zip_code

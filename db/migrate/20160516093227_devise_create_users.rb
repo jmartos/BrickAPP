@@ -40,9 +40,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.integer :phone_number_2
       t.integer :fax_number
       t.string :web_page
-      t.string :image
-
-
 
       t.timestamps null: false
     end

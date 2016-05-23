@@ -49,6 +49,7 @@ GEM
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bower-rails (0.10.0)
     builder (3.2.2)
     byebug (9.0.2)
     climate_control (0.0.3)
@@ -254,6 +255,7 @@ PLATFORMS
 DEPENDENCIES
   autotest-rails
   bootstrap-sass (~> 3.3.6)
+  bower-rails
   byebug
   coffee-rails (~> 4.1.0)
   devise

@@ -1,9 +1,10 @@
 class FixesController < ApplicationController
 
+  before_action :require_login
+  
   def index
     @work = Work.find(params[:work_id])
     @supplier = Supplier.all
-    @fixes = Fix.first
     @fixes = @work.fixes.order(created_at: :desc)
   end
 
@@ -23,7 +24,7 @@ class FixesController < ApplicationController
 
   def create
     @work = Work.find(params[:work_id])
-    @fix = @work.fixes.create(fix_params)
+    @fix = @work.fixes.new(fix_params)
     if @fix.save
       redirect_to fix_index_path
     else 

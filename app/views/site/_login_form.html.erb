@@ -20,3 +20,20 @@
   <%= f.submit "Log in", class: "btn btn-default"  %>
 </div>
 <% end %>
+
+
+
+<h5>Forgot your password?</h5>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+<%= devise_error_messages! %>
+
+<div class="field">
+  <%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %>
+</div>
+
+<div class="actions">
+  <%= f.submit "Reset password", class: "btn btn-default" %>
+</div>
+<% end %>

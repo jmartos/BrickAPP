@@ -30,6 +30,7 @@ gem 'figaro'
 gem 'devise'
 
 gem "paperclip", "~> 5.0.0.beta1"
+gem 'bower-rails'
 
 
 # Use ActiveModel has_secure_password

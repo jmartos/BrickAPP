@@ -87,7 +87,6 @@ ActiveRecord::Schema.define(version: 20160523065659) do
     t.integer  "phone_number_2"
     t.integer  "fax_number"
     t.string   "web_page"
-    t.string   "image"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
@@ -97,7 +96,7 @@ ActiveRecord::Schema.define(version: 20160523065659) do
 
   create_table "works", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "code"
+    t.string   "code"
     t.string   "name"
     t.string   "address"
     t.integer  "zip_code"

@@ -1,4 +1,7 @@
 class WorksController < ApplicationController
+
+  before_action :require_login
+
   def show
     @work = Work.find(params[:id])
   end

@@ -79,3 +79,8 @@ td{
   width: 220px;
   padding: 10px;
 }
+
+.chart {
+  width: 50%;
+  margin: 20px auto;
+}

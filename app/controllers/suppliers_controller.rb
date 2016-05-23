@@ -1,7 +1,11 @@
 class SuppliersController < ApplicationController
+  
+  before_action :require_login
 
   def show
     @supplier = Supplier.find(params[:id])
+    @user_val = @supplier.user_valoration_averege
+    @budget_val = @supplier.budget_valoration
   end
 
   def new
