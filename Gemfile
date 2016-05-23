@@ -48,8 +48,13 @@ group :development, :test do
   gem 'pry'
 
   gem 'faker'
-
+  gem "factory_girl_rails", "~> 4.0"
+  gem 'guard-rspec'
+  gem 'quiet_assets'
+  gem 'autotest-rails'
   gem 'rspec-rails'
+  gem 'guard-bundler'
+  gem 'guard-rails'
 end
 
 group :development do

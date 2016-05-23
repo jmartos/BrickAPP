@@ -3,11 +3,9 @@ console.log("entra");
 
 $(document).ready(function () {
   if($(this).hasClass("Pendent")){
-    console.log("entra");
     $(this).html("Done!");
     $(this).removeClass("btn-danger").addClass("btn-success");
   } else {
-    console.log("entraaaaaaaa");
     $(this).html("Pendent");
     $(this).removeClass("btn-success").addClass("btn-danger");
   }

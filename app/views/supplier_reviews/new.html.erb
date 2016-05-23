@@ -1,0 +1,43 @@
+
+<%= form_for(@supplier_review, url: new_supplier_review_path) do |f| %>
+<%= devise_error_messages! %>
+
+<% @suppliers.each do |supplier| %>
+<div id="review" class="col-md-12">
+
+  <h3>Add new review for <%= supplier.name %></h3>
+  <div class="col-md-4">
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span></span>
+      <div class="field">
+        <%= f.text_field :projected_budget, autofocus: true, placeholder: "Projected Budget", class: "form-control" %>
+      </div>
+    </div><br>
+  </div>
+  <div class="col-md-4">
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span></span>
+      <div class="field">
+        <%= f.text_field :final_budget, autofocus: true, placeholder: "Final Budget", class: "form-control" %>
+      </div>
+    </div><br>
+  </div>
+  <div class="col-md-4">
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-object-align-bottom" aria-hidden="true"></span></span>
+      <div class="field">
+        <%= f.text_field :user_valoration, autofocus: true, placeholder: "Your Valoration (0-10)", class: "form-control" %>
+      </div>
+    </div><br>
+  </div>
+</div>
+<% end %>
+<div class="col-md-10"></div>
+<div class="col-md-1">
+  <div class="actions">
+    <%= f.submit "Create", class: "btn btn-primary" %><br>
+  </div>
+  <% end %>
+
+  <%= link_to "Back", :back %>
+</div>

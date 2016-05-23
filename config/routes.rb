@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   delete 'works/:work_id/fixes/:id/edit', to: 'fixes#destroy'
   post 'works/:work_id/fixes/:id/check', to: 'fixes#check', as: 'fixes_check'
 
-  get 'suppliers/valorations', to: 'suppliers#valorations', as: 'suppliers_valorations'
+  get 'works/:work_id/review', to: 'supplier_reviews#new', as: 'new_supplier_review'
 
 end
 

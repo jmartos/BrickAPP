@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518070201) do
+ActiveRecord::Schema.define(version: 20160523065659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,18 @@ ActiveRecord::Schema.define(version: 20160518070201) do
   add_index "fixes", ["supplier_id"], name: "index_fixes_on_supplier_id", using: :btree
   add_index "fixes", ["work_id"], name: "index_fixes_on_work_id", using: :btree
 
+  create_table "supplier_reviews", force: :cascade do |t|
+    t.integer  "supplier_id"
+    t.integer  "projected_budget"
+    t.integer  "final_budget"
+    t.integer  "user_valoration"
+    t.integer  "fixes_percentage_valoration"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "supplier_reviews", ["supplier_id"], name: "index_supplier_reviews_on_supplier_id", using: :btree
+
   create_table "suppliers", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -48,11 +60,8 @@ ActiveRecord::Schema.define(version: 20160518070201) do
     t.integer  "phone_number_2"
     t.integer  "fax_number"
     t.string   "web_page"
-    t.integer  "user_valoration"
-    t.integer  "budget_valoration"
-    t.integer  "fixes_percentage_valoration"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "suppliers", ["user_id"], name: "index_suppliers_on_user_id", using: :btree
