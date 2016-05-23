@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post 'works/:work_id/fixes/:id/check', to: 'fixes#check', as: 'fixes_check'
 
   get 'works/:work_id/review', to: 'supplier_reviews#new', as: 'new_supplier_review'
+  post 'works/:work_id/review', to: 'supplier_reviews#create'
 
 end
 
