@@ -4,6 +4,7 @@ class Supplier < ActiveRecord::Base
   has_many :supplier_reviews
 
   validates :name, presence: { message: "is required" }, uniqueness: { message: "is already used" }
+  validates :guild, presence: { message: "is required" }
 
   def user_valoration_averege
     (self.supplier_reviews.pluck(:user_valoration)).inject(:+)/(self.supplier_reviews.count)

@@ -30,7 +30,11 @@ class WorksController < ApplicationController
 
   def destroy
     @work = current_user.works.find(params[:id]).destroy
-    redirect_to profile_path(tab: :works)
+    if @work.delete
+      redirect_to profile_path(tab: :works)
+    else 
+      render "edit"
+    end
   end
 
   private

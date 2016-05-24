@@ -3,8 +3,8 @@ class FixesController < ApplicationController
   before_action :require_login
   
   def index
-    @work = Work.find(params[:work_id])
-    @supplier = Supplier.all
+    @work = current_user.works.find(params[:work_id])
+    @supplier = current_user.suppliers.all
     @fixes = @work.fixes.order(created_at: :desc)
   end
 
@@ -18,12 +18,12 @@ class FixesController < ApplicationController
   end
 
   def new
-    @work = Work.find(params[:work_id])
+    @work = current_user.works.find(params[:work_id])
     @fix = Fix.new
   end
 
   def create
-    @work = Work.find(params[:work_id])
+    @work = current_user.works.find(params[:work_id])
     @fix = @work.fixes.new(fix_params)
     if @fix.save
       redirect_to fix_index_path
@@ -33,28 +33,28 @@ class FixesController < ApplicationController
   end
 
   def edit
-   @work = Work.find(params[:work_id])
-   @fix = Fix.find(params[:id])
- end
-
- def update
-  @fix = Fix.find(params[:id]).update(fix_params)
-  if @work.save
-    redirect_to fix_index_path
-  else 
-    render "edit"
+    @work = current_user.works.find(params[:work_id])
+    @fix = Fix.find(params[:id])
   end
-end
 
-def destroy
-  @fix = Fix.find(params[:id]).destroy
-  # redirect_to fix_index_path
-end
+  def update
+    @fix = Fix.find(params[:id]).update(fix_params)
+    redirect_to fix_index_path
+  end
+
+  def destroy
+    @fix = Fix.find(params[:id]).destroy
+    if @fix.delete
+      redirect_to fix_index_path
+    else 
+      render "edit"
+    end
+  end
 
 
-private
+  private
 
-def fix_params
-  params.require(:fix).permit(:code, :picture, :localization, :comment, :supplier_id)
-end
+  def fix_params
+    params.require(:fix).permit(:code, :picture, :localization, :comment, :supplier_id)
+  end
 end

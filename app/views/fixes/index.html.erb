@@ -33,13 +33,13 @@
       <td><%= fix.supplier.name %></td>
       <td><%= fix.comment %></td>
       <td><% if fix.check == false %>
-        <%= button_to 'Pendent', fixes_check_path(@work,fix), remote:true, class: "btn btn-danger" %>
+        <%= button_to 'Pendent', fixes_check_path(@work,fix), remote:true, class: "btn btn-danger check" %>
         <% else %>
-        <%= button_to 'Done', fixes_check_path(@work,fix), remote:true, class: "btn btn-success" %>
+        <%= button_to 'Done', fixes_check_path(@work,fix), remote:true, class: "btn btn-success check" %>
         <% end %>
         <% i+=1 %>
       </td>
-      <td><%= link_to (image_tag("edit.png", id: "user_icon")), "./#{fix.id}/edit" %></td>
+      <td class="icon-table-link"><%= link_to(image_tag("edit.png", id: "user_icon"), fix_edit_path(:work_id => @work.id, :id => fix.id)) %></td>
     </tr>
     <% end %>
   </table>

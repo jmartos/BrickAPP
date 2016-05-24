@@ -27,11 +27,8 @@ class SuppliersController < ApplicationController
 
   def update
     @supplier = current_user.suppliers.find(params[:id]).update(supplier_params)
-    if @supplier.save
-      redirect_to profile_path(tab: :suppliers)
-    else 
-      render "edit"
-    end
+    redirect_to profile_path(tab: :suppliers)
+
   end
 
   def destroy

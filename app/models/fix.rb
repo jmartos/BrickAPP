@@ -2,6 +2,9 @@ class Fix < ActiveRecord::Base
   belongs_to :work
   belongs_to :supplier
 
+  validates :code, presence: { message: "is required" }
+  validates :supplier_id, presence: { message: "is required" }
+  
   has_attached_file :picture, 
   :path => ":rails_root/public/system/:attachment/:id/:basename_:style.:extension",
   :url => "/system/:attachment/:id/:basename_:style.:extension",

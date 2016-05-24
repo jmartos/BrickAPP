@@ -1,0 +1,37 @@
+<div class="col-md-4">
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></span>
+    <div class="field">
+      <%= f.text_field :code, autofocus: true, placeholder: "Code", class: "form-control" %>
+    </div>
+  </div><br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></span>
+    <div class="field">
+      <%= f.file_field :picture, autofocus: true, placeholder: "picture", class: "form-control" %>
+    </div>
+  </div><br>
+
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></span>
+    <div class="field">
+      <%= f.text_field :localization, autofocus: true, placeholder: "Localization", class: "form-control" %>
+    </div>
+  </div><br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></span>
+    <div class="field">
+      <%= f.text_field :comment, autofocus: true, placeholder: "Comment", class: "form-control" %>
+    </div>
+  </div><br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+    <div class="field">
+      <%= f.collection_select(:supplier_id, current_user.suppliers.all, :id, :name, {prompt: "Select a supplier"}, {class: "form-control"})%>
+    </div>
+  </div><br>
+</div>

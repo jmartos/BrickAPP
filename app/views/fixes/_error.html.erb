@@ -1,0 +1,10 @@
+<% if @fix.errors.any? %>
+<div id="error">
+  <h5><%= pluralize(@fix.errors.count, "error") %> prohibited this fix from being saved:</h5>
+  <ul>
+    <% @fix.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>

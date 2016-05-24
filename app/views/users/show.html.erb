@@ -3,7 +3,7 @@
   <!-- Nav tabs -->
   <div class="col-md-1"></div>
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="<%= 'active' if params[:tab] == 'profile' %>"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+    <li role="presentation" class="<%= 'active' if params[:tab] != 'works' && 'suppliers'%>"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
     <li role="presentation" class="<%= 'active' if params[:tab] == 'works' %>"><a href="#works" aria-controls="works" role="tab" data-toggle="tab">Works</a></li>
     <li role="presentation" class="<%= 'active' if params[:tab] == 'suppliers' %>"><a href="#suppliers" aria-controls="suppliers" role="tab" data-toggle="tab">Suppliers</a></li>
   </ul>
@@ -11,7 +11,7 @@
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane" id="profile">
+    <div role="tabpanel" class="tab-pane <%= 'active' if params[:tab] != 'works' && 'suppliers'%>" id="profile">
       <div class="col-md-1"></div>
       <div class="col-md-11">
         <%= button_to "Edit profile", edit_user_registration_path, method: :get, class: "btn btn-success" %>
@@ -39,77 +39,80 @@
 
     </div>
 
-    <div role="tabpanel" class="tab-pane" id="works">
-      <div class="col-md-1"></div>
-      <div class="col-md-11">
-        <%= button_to "Add Work", new_work_path, method: :get, class: "btn btn-success" %>
+    <div role="tabpanel" class="tab-pane <%= 'active' if params[:tab] == 'works'%>" id="works">
+      <div role="tabpanel" class="tab-pane" id="works">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+          <%= button_to "Add Work", new_work_path, method: :get, class: "btn btn-success" %>
+        </div>
+        <div class="col-md-12">
+          <table class="user-table" id="works">
+            <tr>
+              <th>Code</th>
+              <th>Name</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Client</th>
+              <th>Client phone</th>
+              <th>Edit</th>
+              <th>Details</th>
+              <th>Fixes report</th>
+            </tr>
+            <% current_user.works.each do |work| %>
+            <tr id="rows-data">
+              <td><%= work.code %></td>
+              <td><%= work.name %></td>
+              <td><%= work.address %></td>
+              <td><%= work.city %></td>
+              <td><%= work.state %></td>
+              <td><%= work.client %></td>
+              <td><%= work.client_phone %></td>
+              <td class="icon-table-link"><%= link_to(image_tag("edit.png", id: "user_icon"), edit_work_path(:id => work.id)) %></td>
+              <td class="icon-table-link"><%= link_to(image_tag("details.png", id: "user_icon"), work_path(:id => work.id)) %></td>
+              <td class="icon-table-link"><%= link_to(image_tag("report.png", id: "user_icon"), fix_index_path(:work_id => work.id)) %></td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
       </div>
-      <div class="col-md-12">
-        <table class="user-table" id="works">
+    </div>
+    <div role="tabpanel" class="tab-pane <%= 'active' if params[:tab] == 'suppliers'%>" id="suppliers">
+      <div role="tabpanel" class="tab-pane " id="suppliers">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+         <%= button_to "Add Supplier", new_supplier_path, method: :get, class: "btn btn-success" %>
+       </div>
+       <div class="col-md-12">
+        <table class="user-table" id="suppliers">
           <tr>
-            <th>Code</th>
             <th>Name</th>
+            <th>Guild</th>
+            <th>Email</th>
+            <th>Phone 1</th>
             <th>Address</th>
             <th>City</th>
             <th>State</th>
-            <th>Client</th>
-            <th>Client phone</th>
             <th>Edit</th>
             <th>Details</th>
-            <th>Fixes report</th>
           </tr>
-          <% current_user.works.each do |work| %>
+          <% current_user.suppliers.each do |supplier| %>
           <tr id="rows-data">
-            <td><%= work.code %></td>
-            <td><%= work.name %></td>
-            <td><%= work.address %></td>
-            <td><%= work.city %></td>
-            <td><%= work.state %></td>
-            <td><%= work.client %></td>
-            <td><%= work.client_phone %></td>
-            <td class="icon-table-link"><%= link_to(image_tag("edit.png", id: "user_icon"), edit_work_path(:id => work.id)) %></td>
-            <td class="icon-table-link"><%= link_to(image_tag("details.png", id: "user_icon"), work_path(:id => work.id)) %></td>
-            <td class="icon-table-link"><%= link_to(image_tag("report.png", id: "user_icon"), fix_index_path(:work_id => work.id)) %></td>
+            <td><%= supplier.name %></td>
+            <td><%= supplier.guild %></td>
+            <td><%= supplier.email %></td>
+            <td><%= supplier.phone_number_1 %></td>
+            <td><%= supplier.address %></td>
+            <td><%= supplier.city %></td>
+            <td><%= supplier.state %></td>
+            <td class="icon-table-link"><%= link_to(image_tag("edit.png", id: "user_icon"), edit_supplier_path(:id => supplier.id)) %></td>
+            <td class="icon-table-link"><%= link_to(image_tag("details.png", id: "user_icon"), supplier_path(:id => supplier.id)) %></td>
           </tr>
           <% end %>
         </table>
       </div>
-    </div>
-
-    <div role="tabpanel" class="tab-pane" id="suppliers">
-      <div class="col-md-1"></div>
-      <div class="col-md-11">
-       <%= button_to "Add Supplier", new_supplier_path, method: :get, class: "btn btn-success" %>
-     </div>
-     <div class="col-md-12">
-      <table class="user-table" id="suppliers">
-        <tr>
-          <th>Name</th>
-          <th>Guild</th>
-          <th>Email</th>
-          <th>Phone 1</th>
-          <th>Address</th>
-          <th>City</th>
-          <th>State</th>
-          <th>Edit</th>
-          <th>Details</th>
-        </tr>
-        <% current_user.suppliers.each do |supplier| %>
-        <tr id="rows-data">
-          <td><%= supplier.name %></td>
-          <td><%= supplier.guild %></td>
-          <td><%= supplier.email %></td>
-          <td><%= supplier.phone_number_1 %></td>
-          <td><%= supplier.address %></td>
-          <td><%= supplier.city %></td>
-          <td><%= supplier.state %></td>
-          <td class="icon-table-link"><%= link_to(image_tag("edit.png", id: "user_icon"), edit_supplier_path(:id => supplier.id)) %></td>
-          <td class="icon-table-link"><%= link_to(image_tag("details.png", id: "user_icon"), supplier_path(:id => supplier.id)) %></td>
-        </tr>
-        <% end %>
-      </table>
-    </div>
-  </div> 
+    </div> 
+  </div>
 </div>
 
 
