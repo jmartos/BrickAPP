@@ -1,10 +1,7 @@
-
 <%= form_for(@supplier_review, url: new_supplier_review_path) do |f| %>
-<%= devise_error_messages! %>
-
+<%= render "error" %>
 <% @suppliers.each do |supplier| %>
 <div id="review" class="col-md-12">
-
   <h3>Add new review for <%= supplier.name %></h3>
   <div class="col-md-4">
     <div class="input-group">
