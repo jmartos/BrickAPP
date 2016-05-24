@@ -1,10 +1,11 @@
-#users-body {
-  background-color: #FBFBF2;
+#body-login {
+  background-color: #F8F8F8;
 }
 
 .navbar-default .navbar-nav > li > a {
   color: #FFCA00;
 }
+
 
 .nav-login {
   background:linear-gradient(135deg, #FFCA00 50%, #242423 50%);
@@ -33,7 +34,7 @@
   margin-left: 50px;
 }
 #rows-data:hover {
-  background-color: #f5f5f5
+  background-color: #FFCA00;
 }
 
 td{

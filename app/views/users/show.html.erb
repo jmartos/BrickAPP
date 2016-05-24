@@ -3,7 +3,7 @@
   <!-- Nav tabs -->
   <div class="col-md-1"></div>
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="<%= 'active' if params[:tab] != 'works' && 'suppliers'%>"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+    <li role="presentation" class="<%= 'active' if params[:tab] != 'works' && params[:tab] != 'suppliers'%>"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
     <li role="presentation" class="<%= 'active' if params[:tab] == 'works' %>"><a href="#works" aria-controls="works" role="tab" data-toggle="tab">Works</a></li>
     <li role="presentation" class="<%= 'active' if params[:tab] == 'suppliers' %>"><a href="#suppliers" aria-controls="suppliers" role="tab" data-toggle="tab">Suppliers</a></li>
   </ul>
@@ -11,7 +11,7 @@
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane <%= 'active' if params[:tab] != 'works' && 'suppliers'%>" id="profile">
+    <div role="tabpanel" class="tab-pane <%= 'active' if params[:tab] != 'works' && params[:tab] != 'suppliers'%>" id="profile">
       <div class="col-md-1"></div>
       <div class="col-md-11">
         <%= button_to "Edit profile", edit_user_registration_path, method: :get, class: "btn btn-success" %>

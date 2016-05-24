@@ -27,7 +27,6 @@
 <div class="chart">
   <canvas id="userValChart"></canvas>
 </div>
-
 <script type="text/javascript">
 var ctx = document.getElementById("userValChart");
 var userValChart = new Chart(ctx, {
@@ -74,12 +73,9 @@ var userValChart = new Chart(ctx, {
       pointHoverBorderWidth: 2,
       pointRadius: 1,
       pointHitRadius: 10,
-      data: [3, 3, 4]
+      data: <%= @overcosts %>
     }
     ]
-
-
-
   },
   options: { 
     responsive: true,  
@@ -95,7 +91,5 @@ var userValChart = new Chart(ctx, {
   }
 
 });
-
-
 </script>
 

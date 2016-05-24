@@ -7,14 +7,25 @@ class Supplier < ActiveRecord::Base
   validates :guild, presence: { message: "is required" }
 
   def user_valoration_averege
-    (self.supplier_reviews.pluck(:user_valoration)).inject(:+)/(self.supplier_reviews.count)
-  end
+    if (self.supplier_reviews.pluck(:user_valoration)).inject(:+) == nil
+     return "-"
+   else(self.supplier_reviews.pluck(:user_valoration)).inject(:+)/(self.supplier_reviews.count)
+   end
+ end
 
-  def budget_valoration
-    ((self.supplier_reviews.pluck(:final_budget)).inject(:+))*100/(self.supplier_reviews.pluck(:projected_budget)).inject(:+)
+ def budget_valoration
+  @overcost = []
+  self.supplier_reviews.each do |review|
+    ind_overcost = (((review.final_budget*100)/(review.projected_budget))-100)
+    @overcost.push(ind_overcost)
   end
+  return @overcost
+end
 
-  def percentage_fixes_valoration
-
+def budget_valoration_averege
+  if (self.supplier_reviews.pluck(:final_budget)).inject(:+) == nil
+    return "-"
+  else (((self.supplier_reviews.pluck(:final_budget)).inject(:+))*100/(self.supplier_reviews.pluck(:projected_budget)).inject(:+))-100
   end
+end
 end
