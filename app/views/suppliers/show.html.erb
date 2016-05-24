@@ -16,17 +16,13 @@
       <li class="list-group-item"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= @supplier.city %></li>
       <li class="list-group-item"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><%= @supplier.state %></li>
       <li class="list-group-item"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span><%= @supplier.country %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-object-align-bottom" aria-hidden="true"></span><%= @user_val_avg %>/10</li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span><%= @budget_val_avg %>% of overcost</li>
     </div>
     <%= link_to 'Back', profile_path(tab: :suppliers) %>
   </ul>
 </div>
 </div>
-
-user valoration
-<%= @user_val %>
-
-overcost
-<%= @budget_val %>
 
 <div class="chart">
   <canvas id="userValChart"></canvas>
@@ -37,9 +33,9 @@ var ctx = document.getElementById("userValChart");
 var userValChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["Your valoration"],
+    labels: <%= @work_id_reviews %>,
     datasets: [{
-      label: 'Average valoration',
+      label: "Your valoration",
       fill: false,
       lineTension: 0.1,
       backgroundColor: "rgba(75,192,192,0.4)",
@@ -57,8 +53,33 @@ var userValChart = new Chart(ctx, {
       pointHoverBorderWidth: 2,
       pointRadius: 1,
       pointHitRadius: 10,
-      data: [<%= @user_val %>, <%= @budget_val %>]
-    }]
+      data: <%= @user_valoration %>
+    },
+    {
+      label: "Overcost",
+      fill: false,
+      lineTension: 0.1,
+      backgroundColor: "rgba(12,34,45,1)",
+      borderColor: "rgba(12,34,45,1)",
+      borderCapStyle: 'butt',
+      borderDash: [],
+      borderDashOffset: 0.0,
+      borderJoinStyle: 'miter',
+      pointBorderColor: "rgba(12,34,45,1)",
+      pointBackgroundColor: "#fff",
+      pointBorderWidth: 1,
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: "rgba(12,34,45,1)",
+      pointHoverBorderColor: "rgba(220,220,220,1)",
+      pointHoverBorderWidth: 2,
+      pointRadius: 1,
+      pointHitRadius: 10,
+      data: [3, 3, 4]
+    }
+    ]
+
+
+
   },
   options: { 
     responsive: true,  
@@ -66,9 +87,8 @@ var userValChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           scaleOverride:true,
-          scaleSteps:10,
-          scaleStartValue:0,
-          scaleStepWidth:100,
+          beginAtZero:true,
+          max:10,
         }
       }]
     }

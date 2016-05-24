@@ -15,7 +15,7 @@ class SupplierReviewsController < ApplicationController
       @supplier_review = supplier.supplier_reviews.new(supplier_review_params)
     end
     if @supplier_review.save
-      redirect_to fix_index_path
+      redirect_to profile_path(tab: :works)
     else 
       render "new"
     end
