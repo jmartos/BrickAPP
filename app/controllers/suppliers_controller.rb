@@ -1,65 +1,52 @@
 class SuppliersController < ApplicationController
-  
+
   before_action :require_login
 
   def show
-    @supplier = Supplier.find(params[:id])
+    @supplier = current_user.suppliers.find(params[:id])
     @user_val = @supplier.user_valoration_averege
     @budget_val = @supplier.budget_valoration
   end
 
   def new
-    @supplier = Supplier.new
+    @supplier = current_user.suppliers.new
   end
 
   def create
-    @user = current_user
-    @supplier = @user.suppliers.create(
-      :name => params[:supplier][:name],
-      :guild => params[:supplier][:guild],
-      :phone_number_1 => params[:supplier][:phone_number_1],
-      :phone_number_2 => params[:supplier][:phone_number_2],
-      :email => params[:supplier][:email],
-      :address => params[:supplier][:address],
-      :zip_code => params[:supplier][:zip_code],
-      :city => params[:supplier][:city],
-      :state => params[:supplier][:state],
-      :country => params[:supplier][:country],
-      )
+    @supplier = current_user.suppliers.new(supplier_params)
     if @supplier.save
-      redirect_to "/profile"
+      redirect_to profile_path(tab: :suppliers)
     else 
       render "new"
     end
   end
 
   def edit
-    @supplier = Supplier.find(params[:id])
+    @supplier = current_user.suppliers.find(params[:id])
   end
 
   def update
-    @supplier = Supplier.find(params[:id]).update(
-      :name => params[:supplier][:name],
-      :guild => params[:supplier][:guild],
-      :phone_number_1 => params[:supplier][:phone_number_1],
-      :phone_number_2 => params[:supplier][:phone_number_2],
-      :email => params[:supplier][:email],
-      :address => params[:supplier][:address],
-      :zip_code => params[:supplier][:zip_code],
-      :city => params[:supplier][:city],
-      :state => params[:supplier][:state],
-      :country => params[:supplier][:country],
-      )
-    # if @work.save
-    redirect_to "/profile"
-    # else 
-    #   render "edit"
-    # end
+    @supplier = current_user.suppliers.find(params[:id]).update(supplier_params)
+    if @supplier.save
+      redirect_to profile_path(tab: :suppliers)
+    else 
+      render "edit"
+    end
   end
 
   def destroy
-    @supplier = Supplier.find(params[:id]).destroy
-    redirect_to "/profile"
+    @supplier = current_user.suppliers.find(params[:id]).destroy
+    if @supplier.delete
+      redirect_to profile_path(tab: :suppliers)
+    else 
+      render "edit"
+    end
+  end
+
+  private
+
+  def supplier_params
+    params.require(:supplier).permit(:name, :guild, :phone_number_1, :phone_number_2, :email, :address, :zip_code, :city, :state, :country)
   end
 
 end

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/', to: 'site#home'
   get '/contact', to: 'site#contact'
   get '/support', to: 'site#support'
-  get '/profile', to: 'users#show'
+  get '/profile', to: 'users#show', as: 'profile'
 
   resources :works
   resources :suppliers 

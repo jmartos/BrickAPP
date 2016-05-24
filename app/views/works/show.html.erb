@@ -15,7 +15,7 @@
         <li class="list-group-item"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><%= @work.client_phone %></li>
         <li class="list-group-item"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><%= @work.client_email %></li>
     </div>
-    <%= link_to "Back", :back %>
+    <%= link_to 'Back', profile_path(tab: :works) %>
 </ul>
 </div>
 </div>

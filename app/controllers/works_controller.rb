@@ -3,60 +3,39 @@ class WorksController < ApplicationController
   before_action :require_login
 
   def show
-    @work = Work.find(params[:id])
+    @work = current_user.works.find(params[:id])
   end
 
   def new
-    @work = Work.new
+    @work = current_user.works.new
   end
 
   def create
-    @user = current_user
-    @work = @user.works.create(
-      :code => params[:work][:code],
-      :name => params[:work][:name],
-      :address => params[:work][:address],
-      :zip_code => params[:work][:zip_code],
-      :city => params[:work][:city],
-      :state => params[:work][:state],
-      :country => params[:work][:country],
-      :client => params[:work][:client],
-      :client_phone => params[:work][:client_phone],
-      :client_email => params[:work][:client_email],
-      )
+    @work = current_user.works.new(work_params)
     if @work.save
-      redirect_to "/profile"
+      redirect_to profile_path(tab: :works)
     else 
       render "new"
     end
   end
 
   def edit
-    @work = Work.find(params[:id])
+    @work = current_user.works.find(params[:id])
   end
 
   def update
-    @work = Work.find(params[:id]).update(
-      :code => params[:work][:code],
-      :name => params[:work][:name],
-      :address => params[:work][:address],
-      :zip_code => params[:work][:zip_code],
-      :city => params[:work][:city],
-      :state => params[:work][:state],
-      :country => params[:work][:country],
-      :client => params[:work][:client],
-      :client_phone => params[:work][:client_phone],
-      :client_email => params[:work][:client_email],
-      )
-    # if @work.save
-    redirect_to "/profile"
-    # else 
-    #   render "edit"
-    # end
+    @work = current_user.works.find(params[:id]).update(work_params)
+    redirect_to profile_path(tab: :works)
   end
 
   def destroy
-    @work = Work.find(params[:id]).destroy
-    redirect_to "/profile"
+    @work = current_user.works.find(params[:id]).destroy
+    redirect_to profile_path(tab: :works)
+  end
+
+  private
+
+  def work_params
+    params.require(:work).permit(:code, :name, :address, :zip_code, :city, :state, :country, :client, :client_phone, :client_email)
   end
 end

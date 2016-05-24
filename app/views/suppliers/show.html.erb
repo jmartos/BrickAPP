@@ -1,24 +1,24 @@
 <div id="edit" class="col-md-12">
   <h3>Supplier details</h3>
   <div class="col-md-5">
-      <ul class="list-group">
-        <li class="list-group-item"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span><%= @supplier.name %></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><%= @supplier.guild %></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><%= @supplier.email %></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><%= @supplier.phone_number_1 %></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><%= @supplier.phone_number_2 %></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-open-file" aria-hidden="true"></span><%= @supplier.fax_number %></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span><%= @supplier.web_page %></li>
+    <ul class="list-group">
+      <li class="list-group-item"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span><%= @supplier.name %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><%= @supplier.guild %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><%= @supplier.email %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><%= @supplier.phone_number_1 %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><%= @supplier.phone_number_2 %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-open-file" aria-hidden="true"></span><%= @supplier.fax_number %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span><%= @supplier.web_page %></li>
     </div>
     <div class="col-md-5">
-        <li class="list-group-item"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><%= @supplier.address %></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span><%= @supplier.zip_code %></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= @supplier.city %></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><%= @supplier.state %></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span><%= @supplier.country %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><%= @supplier.address %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span><%= @supplier.zip_code %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= @supplier.city %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><%= @supplier.state %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span><%= @supplier.country %></li>
     </div>
-    <%= link_to "Back", :back %>
-</ul>
+    <%= link_to 'Back', profile_path(tab: :suppliers) %>
+  </ul>
 </div>
 </div>
 
@@ -29,7 +29,7 @@ overcost
 <%= @budget_val %>
 
 <div class="chart">
-    <canvas id="userValChart"></canvas>
+  <canvas id="userValChart"></canvas>
 </div>
 
 <script type="text/javascript">
@@ -58,21 +58,21 @@ var userValChart = new Chart(ctx, {
       pointRadius: 1,
       pointHitRadius: 10,
       data: [<%= @user_val %>, <%= @budget_val %>]
-  }]
-},
-options: { 
+    }]
+  },
+  options: { 
     responsive: true,  
     scales: {
       yAxes: [{
-          ticks: {
-              scaleOverride:true,
-              scaleSteps:10,
-              scaleStartValue:0,
-              scaleStepWidth:100,
-          }
+        ticks: {
+          scaleOverride:true,
+          scaleSteps:10,
+          scaleStartValue:0,
+          scaleStepWidth:100,
+        }
       }]
+    }
   }
-}
 
 });
 

@@ -1,92 +1,21 @@
 <%= form_for @work do |f| %>
-<%= devise_error_messages! %>
+<%= render "error" %>
 <div id="edit" class="col-md-12">
   <h3>Edit work</h3>
-  <div class="col-md-4">
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></span>
-      <div class="field">
-        <%= f.text_field :code, autofocus: true, placeholder: "Code", class: "form-control" %>
-      </div>
-    </div><br>
-
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></span>
-      <div class="field">
-        <%= f.text_field :name, autofocus: true, placeholder: "Name", class: "form-control" %>
-      </div>
-    </div><br>
-
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></span>
-      <div class="field">
-        <%= f.text_field :address, autofocus: true, placeholder: "Address", class: "form-control" %>
-      </div>
-    </div><br>
-
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></span>
-      <div class="field">
-        <%= f.text_field :zip_code, autofocus: true, placeholder: "code", class: "form-control" %>
-      </div>
-    </div><br>
-
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></span>
-      <div class="field">
-        <%= f.text_field :city, autofocus: true, placeholder: "City", class: "form-control" %>
-      </div>
-    </div><br>
-  </div>
-
-  <div class="col-md-4">
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span></span>
-      <div class="field">
-        <%= f.text_field :state, autofocus: true, placeholder: "State", class: "form-control" %>
-      </div>
-    </div><br>
-
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></span>
-      <div class="field">
-        <%= f.text_field :country, autofocus: true, placeholder: "Country", class: "form-control" %>
-      </div>
-    </div><br>
-
-
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
-      <div class="field">
-        <%= f.text_field :client, autofocus: true, placeholder: "Client", class: "form-control" %>
-      </div>
-    </div><br>
-
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></span>
-      <div class="field">
-        <%= f.number_field :client_phone, autofocus: true, placeholder: "Client phone number", class: "form-control" %>
-      </div>
-    </div><br>
-
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
-      <div class="field">
-        <%= f.email_field :client_email, autofocus: true, placeholder: "Client_mail", class: "form-control" %>
-      </div>
-    </div><br>
-  </div>
-
+  <%= render "form", f: f %>
   <div class="col-md-4">
     <div class="actions">
-      <%= f.submit "Edit", class: "btn btn-primary" %><br>
+      <%= f.submit "Update", class: "btn btn-primary" %><br>
     </div>
     <% end %>
-    <%= link_to "Back", :back %><br><br>
-    <div class="cancel">
-      <h3>Delete work</h3>
-      <p><%= button_to "Delete work", @work, data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>
-    </div>
+    <%= link_to 'Back', profile_path(tab: :works) %>
   </div>
-
+</div>
+<div class="col-md-8"></div>
+<div class="col-md-4">
+  <div class="cancel">
+    <h3>Delete work</h3>
+    <p><%= button_to "Delete work", @work, data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>
+  </div>
+</div>
 
