@@ -3,9 +3,6 @@
   <div class="col-md-1">
    <%= button_to "New Fix", fix_new_path, method: :get, class: "btn btn-success" %>
  </div>
- <div class="col-md-1">
-   <%= button_to "Supplier´s Review", new_supplier_review_path, method: :get, class: "btn btn-success" %>
- </div>
  <div class="col-md-12">
    <table class="user-table" id="works">
     <tr>
@@ -33,9 +30,9 @@
       <td><%= fix.supplier.name %></td>
       <td><%= fix.comment %></td>
       <td><% if fix.check == false %>
-        <%= button_to 'Pendent', fixes_check_path(@work,fix), remote:true, class: "btn btn-danger check" %>
+        <%= button_to 'Pendent', fixes_check_path(@work,fix), remote:true, class: "btn btn-danger", id: "check" %>
         <% else %>
-        <%= button_to 'Done', fixes_check_path(@work,fix), remote:true, class: "btn btn-success check" %>
+        <%= button_to 'Done', fixes_check_path(@work,fix), remote:true, class: "btn btn-success", id: "check" %>
         <% end %>
         <% i+=1 %>
       </td>
@@ -43,3 +40,19 @@
     </tr>
     <% end %>
   </table>
+  
+  <div class="col-md-8"></div>
+  <div class="col-md-4">
+   <%if @fixes_status.all? { |item| item == true } %>
+   <%= button_to "Supplier´s Review", new_supplier_review_path, method: :get, class: "btn btn-info", id: "review" %>
+
+   <% elsif @fixes_status == [] %>
+
+   <% elsif @supplier_review.any? { |review| review.work_id == @work.id } %>
+   <h5>Review for this work already done</h5>
+   <% end %>
+ </div>
+
+
+
+

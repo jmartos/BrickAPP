@@ -3,6 +3,7 @@
 <% @suppliers.each do |supplier| %>
 <div id="review" class="col-md-12">
   <h3>Add new review for <%= supplier.name %></h3>
+  <% f.text_field :work_id, value: @work.id %>
   <div class="col-md-4">
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span></span>
@@ -32,7 +33,7 @@
 <div class="col-md-10"></div>
 <div class="col-md-1">
   <div class="actions">
-    <%= f.submit "Post review", class: "btn btn-primary" %><br>
+    <%= f.submit "Post review", class: "btn btn-primary", id: "sub-review" %><br>
   </div>
   <% end %>
 

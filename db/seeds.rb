@@ -119,6 +119,7 @@ puts "Supplier created!"
 
 #Suppliers reviews for first supplier
 SupplierReview.create(
+  work_id: 1,
   supplier_id: 1,
   projected_budget: 50000, 
   final_budget: 53000,
@@ -128,6 +129,7 @@ SupplierReview.create(
 puts "Review created!"
 
 SupplierReview.create(
+  work_id: 1,
   supplier_id: 1,
   projected_budget: 40000, 
   final_budget: 49000,
@@ -137,6 +139,7 @@ SupplierReview.create(
 puts "Review created!"  
 
 SupplierReview.create(
+  work_id: 1,
   supplier_id: 1,
   projected_budget: 63000,
   final_budget: 62000,

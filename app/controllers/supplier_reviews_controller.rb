@@ -1,5 +1,5 @@
 class SupplierReviewsController < ApplicationController
-  
+
   before_action :require_login
 
   def new
@@ -24,6 +24,6 @@ class SupplierReviewsController < ApplicationController
   private
 
   def supplier_review_params
-    params.require(:supplier_review).permit(:projected_budget, :final_budget, :user_valoration)
+    params.require(:supplier_review).permit(:projected_budget, :final_budget, :user_valoration, :work_id)
   end
 end

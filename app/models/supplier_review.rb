@@ -1,5 +1,6 @@
 class SupplierReview < ActiveRecord::Base
   belongs_to :supplier
+  belongs_to :work
 
   validates :projected_budget, presence: { message: "is required" }, numericality: { message: "is required" }
   validates :final_budget, presence: { message: "is required" }, numericality: { message: "is required" }
