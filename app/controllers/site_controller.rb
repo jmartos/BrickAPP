@@ -4,7 +4,7 @@ class SiteController < ApplicationController
 
   def home
     if user_signed_in? 
-      redirect_to "/profile"
+      redirect_to profile_path(tab: :works)
     else
       render(:layout => "layouts/site")
     end

@@ -20,7 +20,7 @@ class Work < ActiveRecord::Base
     elsif @fixes_status.all? { |item| item == true }
       @val = "button"
     else
-      @val = "empty"
+      @val = "other"
     end
     return @val
   end

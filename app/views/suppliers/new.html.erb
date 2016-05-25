@@ -1,14 +1,19 @@
 <%= form_for @supplier do |f| %>
 <%= render "error" %>
+<div class="col-md-12"><%= link_to 'Back', profile_path(tab: :suppliers) %></div>
 <div id="edit" class="col-md-12">
-  <h3>Add new supplier</h3>
-  <%= render "form", f: f %>
-  <div class="col-md-4">
-    <div class="actions">
-      <%= f.submit "Create", class: "btn btn-primary" %><br>
-    </div>
-    <% end %>
-    <%= link_to 'Back', profile_path(tab: :suppliers) %>
+  <div class="col-md-2"></div>
+  <div class="col-md-10">
+    <h3>Add new supplier</h3> 
+    <%= render "form", f: f %>
   </div>
 </div>
+<div class="col-md-5"></div>
+<div class="col-md-1">
+  <div class="actions">
+    <%= f.submit "Create", class: "btn btn-primary" %><br>
+  </div>
+</div>
+<% end %>
+
 

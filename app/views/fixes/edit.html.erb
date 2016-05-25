@@ -1,19 +1,17 @@
 <%= form_for(@fix, url: fix_update_path(:work_id => @work.id, :id => @fix.id)) do |f| %>
 <%= render "error" %>
+<div class="col-md-12"><%= link_to "Back", :back %><br><br></div>
 <div id="edit" class="col-md-12">
-  <h3>Edit fix</h3>
-  <%= render "form", f: f %>
-  <div class="col-md-4">
-    <div class="actions">
-      <%= f.submit "Update", class: "btn btn-primary" %><br>
-    </div>
-    <% end %>
-    <%= link_to "Back", :back %><br><br>
+  <div class="col-md-4"></div>
+  <div class="col-md-8">
+    <h3>Edit fix</h3> 
+    <%= render "form", f: f %>
   </div>
-  <div class="col-md-8"></div>
-  <div class="col-md-4">
-    <div class="cancel">
-      <h3>Delete fix</h3>
-      <p><%= button_to "Delete fix", fix_destroy_path(:work_id => @work.id, :id => @fix.id), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>
-    </div>
+</div>
+<div class="col-md-5"></div>
+<div class="col-md-1">
+  <div class="actions">
+    <%= f.submit "Update", class: "btn btn-primary" %><br>
   </div>
+</div>
+<% end %>

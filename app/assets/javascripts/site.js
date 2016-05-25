@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   function init_map(){
     var myOptions = {
       zoom:16,
@@ -20,4 +19,10 @@ $(document).ready(function () {
   }
   google.maps.event.addDomListener(window, 'load', init_map);
 });
+
+window.setTimeout(function() {
+  $(".alert").fadeTo(500, 0).slideUp(500, function(){
+    $(this).remove(); 
+  });
+}, 3000);
 

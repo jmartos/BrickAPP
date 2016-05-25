@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <%= link_to(image_tag("brickapp_logo.png", id: "logo_home"), home_path) %>
     <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to("My Dashboard", profile_path) %></li>
+      <li><%= link_to("My Dashboard", profile_path(tab: :works)) %></li>
       <li><%= link_to "Sign out", destroy_user_session_path, method: 'DELETE' %></li>
       <li><%= link_to("Contact", contact_path) %></li>
       <li class="dropdown">

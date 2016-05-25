@@ -1,7 +1,9 @@
   <!-- Navigator bar -->
   <nav class="navbar navbar-default">
     <div class="container-fluid">
+      <%= link_to(image_tag("brickapp_logo.png", id: "logo_home"), home_path) %>
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="#details" id="link-text" data-toggle="modal" data-target="#login-modal-sm">Log In</a></li>
         <li><a href="#details" id="link-text">What is BrickAPP?</a></li>
         <li><%= link_to("Contact", contact_path, id: "link-text") %></li>
         <li class="dropdown">
@@ -15,20 +17,19 @@
     </div>
   </nav>
   <% flash.each do|key, msg| %>
-  <%= content_tag :div, msg, id: key %>
+  <%= content_tag :div, msg, id: key, class: "alert alert-warning"%>
   <% end %>
   <!-- Logo and buttons -->
+
   <div class="content-home">
     <div class="col-md-12">
       <%=image_tag("brickapp_logo.png", id: "logo")%>
     </div>
 
     <div id="buttons" class="col-md-12">
-      <div class="col-md-4"></div>
-      <div class="col-md-1"><button type="button" id="register" class="btn btn-default btn-lg home-btn" data-toggle="modal" data-target="#registration-modal-sm">Register</button></div>
-      <div class="col-md-1"></div>
-      <div class="col-md-1"><button type="button" id="login" class="btn btn-default btn-lg home-btn" data-toggle="modal" data-target="#login-modal-sm">Log In</button></div>
-      <div class="col-md-4"></div>
+      <div class="col-md-5"></div>
+      <div class="col-md-2"><button type="button" id="register" class="btn btn-default btn-lg home-btn" data-toggle="modal" data-target="#registration-modal-sm"><h3>Register</h3></button></div>
+      <div class="col-md-5"></div>
     </div>
 
     <div class="col-md-12 subtitle">
@@ -66,26 +67,25 @@
     </div>
   </div>
 
-  <!-- Drawing -->
-  <div>
-    <%= render "drawing" %>
-  </div>
-
   <!--  Details -->
   <div id="details" class="container-fluid">
     <div class="col-md-4">
       <%=image_tag("easy.png", id: "icon")%>
       <h3>Easy and intuitive</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra tincidunt varius. Maecenas interdum dui ac ipsum interdum pellentesque nec in est. In hac habitasse platea dictumst. Proin sit amet rutrum quam, vitae pulvinar dui. Nullam aliquet ex ac augue sollicitudin aliquam. Morbi sit amet consectetur justo, a sollicitudin orci. Duis pulvinar scelerisque cursus. Nullam mattis id dui et luctus. Donec facilisis convallis dolor ut mattis. Fusce blandit nec libero id hendrerit. Vestibulum mauris odio, hendrerit vel nisl et, aliquam elementum magna. Etiam dignissim, mi sed ultrices luctus, purus justo rhoncus urna, id cursus nisl risus ut neque. Suspendisse pellentesque accumsan lectus ac congue. Aliquam finibus lorem sed magna pellentesque faucibus.</p>  
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra tincidunt varius. Maecenas interdum dui ac ipsum interdum pellentesque nec in est. In hac habitasse platea dictumst. Proin sit amet rutrum quam, vitae pulvinar dui.</p>  
     </div>
     <div class="col-md-4">
       <%=image_tag("time.png", id: "icon")%>
       <h3>Save time</h3>
-      <p>Cras molestie leo a massa tempor, vitae facilisis lectus suscipit. Nam vitae purus odio. Suspendisse molestie luctus justo, vitae efficitur eros rhoncus eu. Mauris fermentum, lacus sit amet pretium imperdiet, ipsum ex rhoncus dui, ac maximus tellus urna id ligula. Cras a vehicula erat, a pharetra quam. Proin sit amet rutrum velit, sed lobortis magna. Aliquam laoreet ultricies fringilla. Phasellus luctus, lacus vitae ornare scelerisque, enim diam dictum ipsum, ornare dapibus augue ipsum et justo. Sed a nulla porttitor, mattis lorem nec, convallis felis. Nam vulputate sapien a ultricies egestas. Suspendisse erat magna, laoreet id eleifend id, sagittis et lacus. Nullam nisl nisi, venenatis ac neque at, ultricies tristique augue. Etiam nisi diam, faucibus sit amet tristique nec, faucibus ut mi. Vivamus gravida lacinia justo, nec bibendum est fringilla eu. Duis pretium tincidunt ultricies. Etiam convallis iaculis est, eu ornare lacus rhoncus in.</p>
+      <p>Cras molestie leo a massa tempor, vitae facilisis lectus suscipit. Nam vitae purus odio. Suspendisse molestie luctus justo, vitae efficitur eros rhoncus eu. Mauris fermentum, lacus sit amet pretium imperdiet, ipsum ex rhoncus dui, ac maximus tellus urna id ligula.</p>
     </div>
     <div class="col-md-4">
       <%=image_tag("money.png", id: "icon")%>
       <h3>Save money</h3>
-      <p>Donec dictum libero hendrerit nulla mollis, non rhoncus magna accumsan. Donec sagittis ullamcorper arcu, eget elementum urna lacinia eu. Mauris facilisis pellentesque lacus. Cras pretium lacus auctor ante auctor, vel lacinia justo mollis. Quisque nunc nibh, vehicula et cursus id, venenatis vitae sem. Nulla id laoreet eros, sed imperdiet tortor. Nulla scelerisque, sem a sagittis consequat, justo justo vulputate est, dapibus volutpat quam tellus id nibh. Pellentesque volutpat nibh non lobortis dictum. Praesent sodales nibh sit amet nunc molestie commodo. Suspendisse eu sapien magna. Aenean ut turpis accumsan ante convallis egestas. Vestibulum vitae sodales nulla, ut facilisis turpis. In maximus tortor a nisi molestie, eget vestibulum enim euismod. Morbi facilisis tristique nisi, sed fringilla sapien condimentum in.</p>
+      <p>Donec dictum libero hendrerit nulla mollis, non rhoncus magna accumsan. Donec sagittis ullamcorper arcu, eget elementum urna lacinia eu. Mauris facilisis pellentesque lacus. Cras pretium lacus auctor ante auctor, vel lacinia justo mollis.</p>
     </div>
   </div>
+  
+  <footer>
+    <h6>BrickAPP SL</h6>
+  </footer>
