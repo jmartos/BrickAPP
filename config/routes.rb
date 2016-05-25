@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users 
-  get '/', to: 'site#home'
-  get '/contact', to: 'site#contact'
-  get '/support', to: 'site#support'
+  
+  get '/', to: 'site#home', as: 'home'
+  get '/contact', to: 'site#contact', as: 'contact'
   get '/profile', to: 'users#show', as: 'profile'
 
   resources :works

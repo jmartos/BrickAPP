@@ -1,11 +1,11 @@
 #body-login {
   background-color: #F8F8F8;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .navbar-default .navbar-nav > li > a {
   color: #FFCA00;
 }
-
 
 .nav-login {
   background:linear-gradient(135deg, #FFCA00 50%, #242423 50%);
@@ -72,6 +72,17 @@ td{
   margin: 20px;
 }
 
+.btn-success {
+  background-color: #008000;
+}
+
+.btn-primary {
+  background-color: #0000CD;
+}
+
+.btn-danger {
+  background-color: #B22222;
+}
 .cancel {
   border: 2px;
   border-radius: 15px;
@@ -89,4 +100,20 @@ td{
 
 .icon-table-link {
   text-align: center
+}
+
+.nav-tabs > li > a {
+  color: #242423;
+}
+
+.tab-content {
+  background-color: #FFF;
+}
+
+.tab-pane {
+  background-color: #FFF;
+}
+
+#profile {
+  background-color: #FFF;
 }

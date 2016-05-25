@@ -2,6 +2,10 @@ body {
  font-family: 'Montserrat', sans-serif;
 }
 
+#body-guest{
+  background-color: #F8F8F8;
+}
+
 #error {
   color: red;
   border: 2px;
@@ -28,15 +32,6 @@ body {
   text-align: center;
 }
 
-.nav-guest {
-  background:linear-gradient(135deg, #FFCA00 50%, #242423 50%); 
-  border: 0px;
-  margin-bottom: 30px;
-}
-
-.navbar-default .navbar-nav > li > a {
-  color: #FFCA00;
-}
 
 #gmap_canvas {
   height:440px;
@@ -75,10 +70,28 @@ body {
   background-color: #FFCA00;
 }
 
+.nav-guest {
+  background:linear-gradient(135deg, #FFCA00 50%, #242423 50%);
+  border-radius: 0px;
+  border: 0px;
+  margin-bottom: 25px;
+}
 .navbar {
   border-radius: 0px;
   border: 0px;
   background:linear-gradient(135deg, #FFCA00 50%, #242423 50%); 
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #FFCA00;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #FFCA00;
+  border-bottom: 5px;
+  border-bottom-style: solid;
+  border-color: #FFCA00;
+  padding: 10px;
 }
 
 .field-holder {
@@ -97,7 +110,7 @@ body {
 .content-home {
   text-align: center;
   display: inline-block;
-  font-family: 'Montserrat', sans-serif;
+  background-color: #F8F8F8;
 }
 
 #buttons {
