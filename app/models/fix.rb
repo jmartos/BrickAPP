@@ -14,6 +14,10 @@ class Fix < ActiveRecord::Base
   :size => { :in => 0..10.megabytes },
   :content_type => { :content_type => /^image\/(jpeg|png|gif|tiff)$/ }
 
+  def self.get_fix(id)
+    user.fixes.find(id)
+  end
+
   def check_status
     if self.check == true
       self.check = false

@@ -6,8 +6,8 @@ class Work < ActiveRecord::Base
   validates :name, presence: { message: "is required" }, uniqueness: { message: "is already used" }
   validates :code, uniqueness: { message: "is already used" }
   
-  # def self.get_from_user(id, user)
-  #   user.works.find(id)
-  # end
+  def self.get_work(id, user)
+    user.works.find(id)
+  end
 end
 
