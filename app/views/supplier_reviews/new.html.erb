@@ -3,7 +3,7 @@
 <% @suppliers.each do |supplier| %>
 <div id="review" class="col-md-12">
   <h3>Add new review for <%= supplier.name %></h3>
-  <% f.text_field :work_id, value: @work.id %>
+  <%= f.hidden_field :work_id, readonly: true, value: @work.id %>
   <div class="col-md-4">
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span></span>

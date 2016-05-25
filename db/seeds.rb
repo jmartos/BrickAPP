@@ -18,7 +18,6 @@ puts "User created!"
 
 #Works
 Work.create(
-  id: 4,
   user_id: 1,
   code: "H67",
   name: "Greenwich Hospital",
@@ -35,7 +34,6 @@ Work.create(
 puts "Work created!"
 
 Work.create(
-  id: 5,
   user_id: 1,
   code: "M89",
   name: "Glasgow School",
@@ -52,7 +50,6 @@ Work.create(
 puts "Work created!"
 
 Work.create(
-  id: 6,
   user_id: 1,
   code: "A09T",
   name: "Oxford Residence",
@@ -120,52 +117,6 @@ Supplier.create(
   )
 puts "Supplier created!"
 
-#Suppliers reviews for first supplier
-SupplierReview.create(
-  work_id: 1,
-  supplier_id: 1,
-  projected_budget: 40000, 
-  final_budget: 41000,
-  user_valoration: 8,
-  )
-puts "Review created!"
-
-SupplierReview.create(
-  work_id: 2,
-  supplier_id: 1,
-  projected_budget: 50000, 
-  final_budget: 53000,
-  user_valoration: 6,
-  )
-puts "Review created!"
-
-SupplierReview.create(
-  work_id: 3,
-  supplier_id: 1,
-  projected_budget: 30000, 
-  final_budget: 29000,
-  user_valoration: 9,
-  )
-puts "Review created!"
-
-# SupplierReview.create(
-#   work_id: 1,
-#   supplier_id: 1,
-#   projected_budget: 40000, 
-#   final_budget: 49000,
-#   user_valoration: 4,
-#   )
-# puts "Review created!"  
-
-# SupplierReview.create(
-#   work_id: 1,
-#   supplier_id: 1,
-#   projected_budget: 63000,
-#   final_budget: 62000,
-#   user_valoration: 8,
-#   )
-# puts "Review created!"  
-
 #Fixes
 Fix.create(
   work_id: 1,
@@ -194,7 +145,60 @@ Fix.create(
   )
 puts "Fix created!"
 
+Fix.create(
+  work_id: 2,
+  supplier_id: 1,
+  code: 123,
+  localization: "kitchen",
+  comment: "The sin lost water",
+  )
+puts "Fix created!"
 
+Fix.create(
+  work_id: 2,
+  supplier_id: 2,
+  code: 123,
+  localization: "hall",
+  comment: "light doesnt work",
+  )
+puts "Fix created!"
+
+Fix.create(
+  work_id: 2,
+  supplier_id: 3,
+  code: 123,
+  localization: "balcony",
+  comment: "wrong color of bricks",
+  )
+puts "Fix created!"
+
+#Suppliers reviews for first supplier
+SupplierReview.create(
+  work_id: 1,
+  supplier_id: 1,
+  projected_budget: 40000, 
+  final_budget: 41000,
+  user_valoration: 8,
+  )
+puts "Review created!"
+
+SupplierReview.create(
+  work_id: 1,
+  supplier_id: 1,
+  projected_budget: 50000, 
+  final_budget: 53000,
+  user_valoration: 6,
+  )
+puts "Review created!"
+
+SupplierReview.create(
+  work_id: 1,
+  supplier_id: 1,
+  projected_budget: 30000, 
+  final_budget: 29000,
+  user_valoration: 9,
+  )
+puts "Review created!"
 
 
 # #Seed users

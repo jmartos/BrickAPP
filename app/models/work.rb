@@ -13,12 +13,14 @@ class Work < ActiveRecord::Base
   def review_button
     @fixes_status = self.fixes.pluck(:check)
     @supplier_review = SupplierReview.all
-    if @fixes_status.all? { |item| item == true }
-      @val = "button"
-    elsif self.fixes == []
-      @val = "empty"
-    else @supplier_review.any? { |review| review.work_id == self.id }
+    if @supplier_review.any? { |review| review.work_id == self.id }
       @val = "done"
+    elsif @fixes_status.size == 0
+      @val = "empty"
+    elsif @fixes_status.all? { |item| item == true }
+      @val = "button"
+    else
+      @val = "empty"
     end
     return @val
   end

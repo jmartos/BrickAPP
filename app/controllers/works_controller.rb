@@ -4,8 +4,6 @@ class WorksController < ApplicationController
   before_action :find_work, only: [:show, :edit, :update, :destroy]
 
   def show
-    #@work = Work.get_from_user(params[:id], current_user)
-    #current_user.works.find(params[:id])
   end
 
   def new
@@ -22,18 +20,15 @@ class WorksController < ApplicationController
   end
 
   def edit
-    #@work = current_user.works.find(params[:id])
   end
 
   def update
     @work.update(work_params)
-    #@work = current_user.works.find(params[:id]).update(work_params)
     redirect_to profile_path(tab: :works)
   end
 
   def destroy
     @work.destroy
-    #@work = current_user.works.find(params[:id]).destroy
     if @work.delete
       redirect_to profile_path(tab: :works)
     else 

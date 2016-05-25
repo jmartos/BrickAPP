@@ -4,15 +4,7 @@ class SuppliersController < ApplicationController
   before_action :find_supplier, only: [:show, :edit, :update, :destroy]
 
   def show
-    #@supplier = current_user.suppliers.find(params[:id])
-    
     @data = @supplier.obtain_chart_data
-    #binding.pry
-
-    # @overcosts = @supplier.budget_valoration
-    # @user_valoration = @supplier.supplier_reviews.pluck(:user_valoration)
-
-    #@work_id_reviews = @supplier.supplier_reviews.pluck(:work_id)
     @user_val_avg = @supplier.user_valoration_averege
     @budget_val_avg = @supplier.budget_valoration_averege
   end
@@ -31,19 +23,16 @@ class SuppliersController < ApplicationController
   end
 
   def edit
-    #@supplier = current_user.suppliers.find(params[:id])
   end
 
   def update
     @supplier.update(supplier_params)
-    #@supplier = current_user.suppliers.find(params[:id]).update(supplier_params)
     redirect_to profile_path(tab: :suppliers)
 
   end
 
   def destroy
     @supplier.destroy
-    #@supplier = current_user.suppliers.find(params[:id]).destroy
     if @supplier.delete
       redirect_to profile_path(tab: :suppliers)
     else 
@@ -60,5 +49,4 @@ class SuppliersController < ApplicationController
   def find_supplier
     @supplier = Supplier.get_supplier(params[:id], current_user)
   end
-
 end

@@ -11,6 +11,10 @@ class Supplier < ActiveRecord::Base
     user.suppliers.find(id)
   end
 
+  def self.get_suppliers_for_fix(suppliers, work)
+    suppliers.where(id: work.fixes.pluck(:supplier_id))
+  end
+
   def user_valoration_averege
     if (self.supplier_reviews.pluck(:user_valoration)).inject(:+) == nil
       return "-"
@@ -27,6 +31,8 @@ class Supplier < ActiveRecord::Base
     end
     return @overcost
   end
+
+
 
   def budget_valoration_averege
     if (self.supplier_reviews.pluck(:final_budget)).inject(:+) == nil
