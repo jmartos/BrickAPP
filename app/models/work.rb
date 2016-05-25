@@ -9,5 +9,18 @@ class Work < ActiveRecord::Base
   def self.get_work(id, user)
     user.works.find(id)
   end
+
+  def review_button
+    @fixes_status = self.fixes.pluck(:check)
+    @supplier_review = SupplierReview.all
+    if @fixes_status.all? { |item| item == true }
+      @val = "button"
+    elsif self.fixes == []
+      @val = "empty"
+    else @supplier_review.any? { |review| review.work_id == self.id }
+      @val = "done"
+    end
+    return @val
+  end
 end
 

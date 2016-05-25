@@ -15,7 +15,7 @@ class Fix < ActiveRecord::Base
   :content_type => { :content_type => /^image\/(jpeg|png|gif|tiff)$/ }
 
   def self.get_fix(id)
-    user.fixes.find(id)
+    Fix.find(id)
   end
 
   def check_status

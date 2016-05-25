@@ -9,8 +9,10 @@ class FixesController < ApplicationController
     #@work = current_user.works.find(params[:work_id])
     @supplier = current_user.suppliers.all
     @fixes = @work.fixes.order(created_at: :desc)
-    @fixes_status = @fixes.pluck(:check)
-    @supplier_review = SupplierReview.all
+    # @fixes_status = @fixes.pluck(:check)
+    # @supplier_review = SupplierReview.all
+
+    @val = @work.review_button
   end
 
   def check

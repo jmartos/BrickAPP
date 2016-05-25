@@ -35,10 +35,17 @@ class Supplier < ActiveRecord::Base
       ((((self.supplier_reviews.pluck(:final_budget)).inject(:+))-(self.supplier_reviews.pluck(:projected_budget)).inject(:+))*100)/((self.supplier_reviews.pluck(:projected_budget)).inject(:+))
     end
   end
-end
 
-# def obtain_chart_data
-#   @user_valoration = self.supplier_reviews.pluck(:user_valoration)
-#   @overcosts = self.budget_valoration
-# end
+  def obtain_chart_data
+    user_valoration = self.supplier_reviews.pluck(:user_valoration)
+    overcosts = self.budget_valoration
+    work_id_reviews = self.supplier_reviews.pluck(:work_id)
+    @data = {
+      user_valoration: user_valoration,
+      overcosts: overcosts,
+      work_id_reviews: work_id_reviews
+    }
+    return @data
+  end
+end
 

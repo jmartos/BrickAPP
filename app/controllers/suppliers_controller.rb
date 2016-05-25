@@ -6,11 +6,13 @@ class SuppliersController < ApplicationController
   def show
     #@supplier = current_user.suppliers.find(params[:id])
     
-    #@supplier.obtain_chart_data
-    @overcosts = @supplier.budget_valoration
-    @user_valoration = @supplier.supplier_reviews.pluck(:user_valoration)
+    @data = @supplier.obtain_chart_data
+    #binding.pry
 
-    @work_id_reviews = @supplier.supplier_reviews.pluck(:work_id)
+    # @overcosts = @supplier.budget_valoration
+    # @user_valoration = @supplier.supplier_reviews.pluck(:user_valoration)
+
+    #@work_id_reviews = @supplier.supplier_reviews.pluck(:work_id)
     @user_val_avg = @supplier.user_valoration_averege
     @budget_val_avg = @supplier.budget_valoration_averege
   end

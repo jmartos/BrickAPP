@@ -32,7 +32,7 @@ var ctx = document.getElementById("userValChart");
 var userValChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: <%= @work_id_reviews %>,
+    labels: <%= @data[:work_id_reviews]%>,
     datasets: [{
       label: "Your valoration",
       fill: false,
@@ -52,7 +52,7 @@ var userValChart = new Chart(ctx, {
       pointHoverBorderWidth: 2,
       pointRadius: 1,
       pointHitRadius: 10,
-      data: <%= @user_valoration %>
+      data: <%= @data[:user_valoration]%>
     },
     {
       label: "Overcost",
@@ -73,7 +73,7 @@ var userValChart = new Chart(ctx, {
       pointHoverBorderWidth: 2,
       pointRadius: 1,
       pointHitRadius: 10,
-      data: <%= @overcosts %>
+      data: <%= @data[:overcosts]%>
     }
     ]
   },

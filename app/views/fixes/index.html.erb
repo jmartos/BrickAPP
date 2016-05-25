@@ -43,16 +43,13 @@
   
   <div class="col-md-8"></div>
   <div class="col-md-4">
-   <%if @fixes_status.all? { |item| item == true } %>
+   <%if @val == "button" %>
    <%= button_to "Supplier´s Review", new_supplier_review_path, method: :get, class: "btn btn-info", id: "review" %>
-
-   <% elsif @fixes_status == [] %>
-
-   <% elsif @supplier_review.any? { |review| review.work_id == @work.id } %>
+   <% elsif @val == "empty" %>
+   <% elsif @val == "done" %>
    <h5>Review for this work already done</h5>
    <% end %>
  </div>
-
 
 
 
