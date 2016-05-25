@@ -1,6 +1,6 @@
 #User
 User.create(
-  email: "ironbuild@mail.com",
+  email: "ironbuild.mail@gmail.com",
   name: "IronBuild ltd",
   address: "123 Fake st", 
   zip_code: 67292, 

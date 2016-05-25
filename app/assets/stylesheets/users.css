@@ -55,18 +55,18 @@ td{
   margin: 20px;
 }
 
-#edit {
+/*#edit {
   margin-left: 25%;
-}
+  }*/
 
-.field {
-  width: 300px;
-}
+  .field {
+    width: 300px;
+  }
 
-#review {
-  margin-left: 30px;
-  margin-bottom: 50px;
-}
+  #review {
+    margin-left: 30px;
+    margin-bottom: 50px;
+  }
 
 /*.input-group{
   width: 100px;

@@ -11,6 +11,7 @@ class SupplierReviewsController < ApplicationController
   def create
     @suppliers.each do |supplier|
       supplier.supplier_reviews.create(supplier_review_params)
+      BrickappMailer.review_email(@work).deliver_now
     end
     redirect_to profile_path(tab: :works)
   end
