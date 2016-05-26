@@ -124,6 +124,7 @@ Fix.create(
   code: 123,
   localization: "kitchen",
   comment: "The sin lost water",
+  check: true,
   )
 puts "Fix created!"
 
@@ -133,6 +134,7 @@ Fix.create(
   code: 123,
   localization: "hall",
   comment: "light doesnt work",
+  check: true,
   )
 puts "Fix created!"
 
@@ -142,6 +144,7 @@ Fix.create(
   code: 123,
   localization: "balcony",
   comment: "wrong color of bricks",
+  check: true,
   )
 puts "Fix created!"
 
@@ -184,7 +187,7 @@ puts "Review created!"
 
 SupplierReview.create(
   work_id: 1,
-  supplier_id: 1,
+  supplier_id: 2,
   projected_budget: 50000, 
   final_budget: 53000,
   user_valoration: 6,
@@ -193,7 +196,7 @@ puts "Review created!"
 
 SupplierReview.create(
   work_id: 1,
-  supplier_id: 1,
+  supplier_id: 3,
   projected_budget: 30000, 
   final_budget: 29000,
   user_valoration: 9,
