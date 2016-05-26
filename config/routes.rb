@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   patch 'works/:work_id/fixes/:id', to: 'fixes#update', as: 'fix_update'
   delete 'works/:work_id/fixes/:id/delete', to: 'fixes#destroy', as: 'fix_destroy'
   post 'works/:work_id/fixes/:id/check', to: 'fixes#check', as: 'fixes_check'
+  get 'works/:work_id/fixes/email', to: 'fixes#send_email', as: 'fix_email'
 
   get 'works/:work_id/review', to: 'supplier_reviews#new', as: 'new_supplier_review'
   post 'works/:work_id/review', to: 'supplier_reviews#create'

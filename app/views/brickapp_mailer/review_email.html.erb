@@ -1,2 +1,26 @@
-<h1>Congratulations!</h1>
-<p>The <%= @work.name %> work has been finished and the reviews of your suppliers has been updated.</p>
+<h1>Dear <%= @supplier.name %></h1>
+<p>The <%= @work.name %> requiere your company to repair the next list of fixes.</p>
+<table class="user-table" id="works">
+  <tr>
+    <th>Nr.</th>
+    <th>Code</th>
+    <th>Localization</th>
+    <th>Comment</th>
+    <th>Guild</th>
+    <th>Supplier</th>
+    <th>Comment</th>
+  </tr>
+  <% i=1 %>
+  <% @fixes.each do |fix| %>
+  <tr id="rows-data">
+    <th><%= i %>
+    </th>
+    <td><%= fix.code %></td>
+    <td><%= fix.localization %></td>
+    <td><%= fix.comment %></td>
+    <td><%= fix.supplier.guild %></td>
+    <td><%= fix.supplier.name %></td>
+    <td><%= fix.comment %></td>
+    <% i+=1 %>
+    <% end %>
+  </td>

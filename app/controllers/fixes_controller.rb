@@ -1,7 +1,7 @@
 class FixesController < ApplicationController
 
   before_action :require_login
-  before_action :find_work, only: [:index, :new, :create, :edit]
+  before_action :find_work, only: [:index, :new, :create, :edit, :send_email]
   before_action :find_fix, only: [:check, :edit, :update, :destroy]
 
   def index
@@ -46,6 +46,15 @@ class FixesController < ApplicationController
     else 
       render "edit"
     end
+  end
+
+  def send_email
+    @fixes = @work.fixes
+    @suppliers = Supplier.get_suppliers_for_fix(current_user.suppliers, @work)
+    @suppliers.each do |supplier|
+      BrickappMailer.review_email(@work, supplier, @fixes, current_user).deliver_now
+    end
+    redirect_to fix_index_path
   end
 
 

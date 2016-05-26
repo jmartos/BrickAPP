@@ -48,16 +48,17 @@
   
   <div class="col-md-8"></div>
   <div class="col-md-4">
-   <%if @val == "button" %>
-   <%= button_to "Supplier´s Review", new_supplier_review_path, method: :get, class: "btn btn-info", id: "review" %>
-   <% elsif @val == "empty" %>
-   <h5>Add fixes</h5>
-   <% elsif @val == "done" %>
-   <h5>The review for this work is already done</h5>
-   <% else @val == "other" %>
-   <h5>Complete all fixes</h5>
-   <% end %>
- </div>
+    <%if @val == "button" %>
+    <%= button_to "Supplier´s Review", new_supplier_review_path, method: :get, class: "btn btn-info", id: "review" %>
+    <% elsif @val == "empty" %>
+    <h5>Add fixes</h5>
+    <% elsif @val == "done" %>
+    <h5>The review for this work is already done</h5>
+    <% else @val == "other" %>
+    <h5>Complete all fixes</h5>
+    <% end %>
+    <%= button_to "Send list to suppliers", fix_email_path, method: :get, class: "btn btn-primary" %>
+  </div>
 
 
 

@@ -32,8 +32,6 @@ class Supplier < ActiveRecord::Base
     return @overcost
   end
 
-
-
   def budget_valoration_averege
     if (self.supplier_reviews.pluck(:final_budget)).inject(:+) == nil
       return "-"

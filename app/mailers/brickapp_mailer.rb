@@ -1,6 +1,9 @@
 class BrickappMailer < ApplicationMailer
-  def review_email(work)
+  def review_email(work, supplier, fixes, user)
     @work = work
-    mail(to: "ironbuild.mail@gmail.com", subject: "Work completed")
+    @supplier = supplier
+    @fixes = fixes
+    @user = user
+    mail(to: @supplier.email, subject: "Fix list for #{@work.name}", cc: @user.email)
   end
 end
