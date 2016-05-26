@@ -195,11 +195,38 @@ SupplierReview.create(
 puts "Review created!"
 
 SupplierReview.create(
-  work_id: 1,
+  work_id: 10,
   supplier_id: 3,
-  projected_budget: 30000, 
-  final_budget: 29000,
-  user_valoration: 9,
+  projected_budget: 43000, 
+  final_budget: 42500,
+  user_valoration: 8,
+  )
+puts "Review created!"
+
+SupplierReview.create(
+  work_id: 11,
+  supplier_id: 3,
+  projected_budget: 29000, 
+  final_budget: 30500,
+  user_valoration: 3,
+  )
+puts "Review created!"
+
+SupplierReview.create(
+  work_id: 12,
+  supplier_id: 3,
+  projected_budget: 15000, 
+  final_budget: 15500,
+  user_valoration: 6,
+  )
+puts "Review created!"
+
+SupplierReview.create(
+  work_id: 13,
+  supplier_id: 3,
+  projected_budget: 25000, 
+  final_budget: 27000,
+  user_valoration: 3,
   )
 puts "Review created!"
 

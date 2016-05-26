@@ -55,62 +55,66 @@ td{
   margin: 20px;
 }
 
-/*#edit {
-  margin-left: 25%;
-  }*/
+#show {
+  margin-left: 8%;
+}
 
-  .field {
-    width: 300px;
-  }
+.field {
+  width: 300px;
+}
 
-  #review {
-    margin-left: 30px;
-    margin-bottom: 50px;
-  }
+#review {
+  margin-left: 30px;
+  margin-bottom: 50px;
+}
 
-/*.input-group{
-  width: 100px;
-  }*/
+.btn {
+  margin: 20px;
+}
 
-  .btn {
-    margin: 20px;
-  }
+.btn-success {
+  background-color: #008000;
+}
 
-  .btn-success {
-    background-color: #008000;
-  }
+.btn-primary {
+  background-color: #0000CD;
+}
 
-  .btn-primary {
-    background-color: #0000CD;
-  }
+.btn-danger {
+  background-color: #B22222;
+}
+.cancel {
+  border: 2px;
+  border-radius: 15px;
+  border-color: black;
+  border-style: solid;
+  width: 215px;
+  padding: 8px;
+  text-align: center;;
+}
 
-  .btn-danger {
-    background-color: #B22222;
-  }
-  .cancel {
-    border: 2px;
-    border-radius: 15px;
-    border-color: black;
-    border-style: solid;
-    width: 200px;
-    padding: 5px;
-    text-align: center;;
-  }
+.chart {
+  width: 50%;
+  margin: 20px auto;
+}
 
-  .chart {
-    width: 50%;
-    margin: 20px auto;
-  }
+.icon-table-link {
+  text-align: center
+}
 
-  .icon-table-link {
-    text-align: center
-  }
+.nav-tabs > li > a {
+  color: #242423;
+}
 
-  .nav-tabs > li > a {
-    color: #242423;
-  }
+#tabs {
+  background-color: #FFF;
+  height:100vh;
+}
 
-  #tabs {
-    background-color: #FFF;
-    height:100vh;
-  }
+#user_value {
+  color:#06D6A0;
+}
+
+#overcost {
+  color:#EF476F;
+}

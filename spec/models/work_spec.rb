@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Work, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "test for work model" do
+    it "review button empty" do
+      work = Work.new
+      expect(work.review_button).to eq("empty")
+    end
+  end
 end

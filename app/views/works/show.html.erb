@@ -1,21 +1,21 @@
-<div id="edit" class="col-md-12">
+<div class="col-md-12"><%= link_to 'Back', profile_path(tab: :works) %></div>
+<div id="show" class="col-md-12">
   <h3>Work details</h3>
   <div class="col-md-5">
-      <ul class="list-group">
-        <li class="list-group-item"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><%= @work.code %></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span><%= @work.name %></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><%= @work.address %></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span><%= @work.zip_code %></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= @work.city %></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><%= @work.state %></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span><%= @work.country %></li>
+    <ul class="list-group">
+      <li class="list-group-item"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><%= @work.code %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span><%= @work.name %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><%= @work.address %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span><%= @work.zip_code %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= @work.city %></li>
     </div>
     <div class="col-md-5">
-        <li class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><%= @work.client %></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><%= @work.client_phone %></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><%= @work.client_email %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><%= @work.state %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span><%= @work.country %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><%= @work.client %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><%= @work.client_phone %></li>
+      <li class="list-group-item"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><%= @work.client_email %></li>
     </div>
-    <%= link_to 'Back', profile_path(tab: :works) %>
-</ul>
+  </ul>
 </div>
 </div>
